@@ -25,7 +25,7 @@ The default server is `https://boxxv3.shunyalabs.ai`. Set `BOXX_TEST_BASE` to po
 
 The page updates about a minute after a run finishes. The upload takes a few seconds, then GitHub Pages rebuilds. Updating the page needs permission to push this repository. Opening the page does not.
 
-The page opens with how many conversations passed and how many failed. Each failed row shows the person's message, what the bot should have done, what the reply left out, and the chat itself.
+The page opens with a score bar and a short list. Each row is one conversation: the name, the one thing the reply left out, and Passed or Failed. Open a row for the full chat.
 
 **Was working, now failed** means it passed on the previous publish and failed on this one. **Fixed** means it failed last time and passed this time. A failure that was already there stays under **Failed**.
 

@@ -8,28 +8,27 @@
 </head>
 <body>
   <header>
-    <div>
-      <p class="eyebrow">BOXX conversation check</p>
-      <h1 id="headline">Loading the latest check.</h1>
-      <p class="sub" id="meta"></p>
+    <div class="brand">
+      <span class="mark" aria-hidden="true"></span>
+      <div>
+        <p class="eyebrow">BOXX</p>
+        <h1 id="headline">Loading</h1>
+      </div>
     </div>
     <a class="source" href="https://github.com/Shunyalabsai/box-automation-suit">Source</a>
   </header>
 
-  <section class="verdict" id="verdict" hidden></section>
-  <section class="stats" id="stats"></section>
-  <section class="history" id="history"></section>
+  <section class="score" id="score"></section>
 
   <div class="tools">
     <nav class="filters" id="filters">
       <button type="button" data-filter="failed">Failed</button>
-      <button type="button" data-filter="broke">Was working, now failed</button>
+      <button type="button" data-filter="broke">Newly broken</button>
       <button type="button" data-filter="fixed">Fixed</button>
-      <button type="button" data-filter="all">All conversations</button>
+      <button type="button" data-filter="all">All</button>
     </nav>
-    <input id="search" type="search" placeholder="Search a message or a case" aria-label="Search conversations">
+    <input id="search" type="search" placeholder="Search" aria-label="Search conversations">
   </div>
-  <p class="hint" id="hint"></p>
 
   <main id="list"></main>
   <script src="app.js"></script>
