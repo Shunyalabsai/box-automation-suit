@@ -25,13 +25,9 @@ The default server is `https://boxxv3.shunyalabs.ai`. Set `BOXX_TEST_BASE` to po
 
 The page updates about a minute after a run finishes. The upload takes a few seconds, then GitHub Pages rebuilds. Updating the page needs permission to push this repository. Opening the page does not.
 
-Each failure shows three things:
+The page opens with how many conversations passed and how many failed. Each failed row shows the person's message, what the bot should have done, what the reply left out, and the chat itself.
 
-- **Expected behaviour.** What a correct reply has to do.
-- **Missing in the bot response.** The part that was not there.
-- **Basis of the check.** The rule that decided the case.
-
-A journey that passed on the previous publish and fails on this one is marked **Broke since last run**. That is an existing flow this run affected. A journey that was already red stays **Still failing**. A journey that was red and is now green is **Fixed since last run**.
+**Was working, now failed** means it passed on the previous publish and failed on this one. **Fixed** means it failed last time and passed this time. A failure that was already there stays under **Failed**.
 
 ## What is in the catalogue
 
