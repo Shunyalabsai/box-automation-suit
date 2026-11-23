@@ -1,5 +1,5 @@
 {
- "published_at": "2026-11-23T10:41:14Z",
+ "published_at": "2026-11-23T11:05:18Z",
  "label": "Smoke go-ahead",
  "server": "https://boxxv3.shunyalabs.ai",
  "reports": [
@@ -19,11 +19,15 @@
    "suite": "smoke_happy",
    "family": "UAT check a message",
    "passed": false,
-   "status": "new_fail",
+   "status": "still_failing",
    "fails": [
     "MUST_MATCH_MISSING"
    ],
-   "watch": "Sheet case 5. The domain is not an official government address. A department does not ask for bank details through an email link. Do not click.",
+   "expected": "The domain is not an official government address. A department does not ask for bank details through an email link. Do not click.",
+   "missing": [
+    "None of these were in the reply: don't click; do not click; don't enter; do not enter; do not open."
+   ],
+   "basis": "The whole reply is checked. Each required part must appear. A part passes when any one of its phrases appears. Case does not matter.",
    "turns": [
     {
      "user": "I got an email from 'incometax-refund@gov-in.org' saying I have a pending refund of ₹18,450, asking me to click a link and enter my bank account and PAN details to claim it. Is this genuine?",
@@ -40,11 +44,16 @@
    "suite": "smoke_happy",
    "family": "UAT family protection",
    "passed": false,
-   "status": "new_fail",
+   "status": "still_failing",
    "fails": [
     "MUST_MATCH_MISSING"
    ],
-   "watch": "Sheet case 10. Practical steps: a family codeword, government agencies do not call to demand money, hang up and call a family member first. Reassuring, not an alarm that the scam has already happened.",
+   "expected": "Practical steps: a family codeword, government agencies do not call to demand money, hang up and call a family member first. Reassuring, not an alarm that the scam has already happened.",
+   "missing": [
+    "None of these were in the reply: hang up; end the call; disconnect.",
+    "None of these were in the reply: \"never\" within a few words of \"money\"; \"never\" within a few words of \"payment\"; \"do not\" within a few words of \"money\"; \"do not\" within a few words of \"payment\"; \"don't\" within a few words of \"money\"; \"don't\" within a few words of \"payment\"."
+   ],
+   "basis": "The whole reply is checked. Each required part must appear. A part passes when any one of its phrases appears. Case does not matter.",
    "turns": [
     {
      "user": "My parents live alone and I'm worried they'll fall for a fake police call or digital-arrest scam when I'm not around — what can I do to protect them?",
@@ -61,11 +70,15 @@
    "suite": "smoke_happy",
    "family": "UAT live scam",
    "passed": false,
-   "status": "new_fail",
+   "status": "still_failing",
    "fails": [
     "MUST_MATCH_MISSING"
    ],
-   "watch": "Sheet case 2. Digital arrest is not a real legal procedure. Disconnect, do not transfer money or share Aadhaar and bank details, and do not treat the caller as a real officer.",
+   "expected": "Digital arrest is not a real legal procedure. Disconnect, do not transfer money or share Aadhaar and bank details, and do not treat the caller as a real officer.",
+   "missing": [
+    "None of these were in the reply: don't share; don't transfer; don't send; do not share; do not transfer; do not send; never share; never transfer."
+   ],
+   "basis": "The whole reply is checked. Each required part must appear. A part passes when any one of its phrases appears. Case does not matter.",
    "turns": [
     {
      "user": "I got a call saying a parcel booked in my name was caught at Mumbai customs with drugs and a fake passport inside. He said he’s transferring the call to the Cyber Crime branch. Now a “police officer” is saying I need to share my Aadhaar number and bank details to prove my innocence or my account will be frozen",
@@ -83,12 +96,17 @@
    "suite": "smoke_happy",
    "family": "UAT live scam",
    "passed": false,
-   "status": "new_fail",
+   "status": "still_failing",
    "fails": [
     "NO_URGENT_ACTION(F2)",
     "MUST_MATCH_MISSING"
    ],
-   "watch": "Sheet case 3. Active emergency: do not share the AnyDesk code. Call the bank, and block or freeze so nothing further moves.",
+   "expected": "Active emergency: do not share the AnyDesk code. Call the bank, and block or freeze so nothing further moves.",
+   "missing": [
+    "None of these were in the reply: don't share; do not share; never share.",
+    "No immediate step was in the reply."
+   ],
+   "basis": "The whole reply is checked. Each required part must appear. A part passes when any one of its phrases appears. Case does not matter. An emergency must include an immediate step: hang up, call the bank, block or freeze, or 1930.",
    "turns": [
     {
      "user": "Someone called saying they’re from my bank’s technical support team and my account has a ‘suspicious hold.’ They asked me to download AnyDesk and share the 9-digit code with them so they can ‘fix the issue remotely.’ I already installed the app — should I share the code?",
@@ -108,7 +126,9 @@
    "passed": true,
    "status": "pass",
    "fails": [],
-   "watch": "An Indian 1800 number is not offered as the way to call the bank from Japan.",
+   "expected": "An Indian 1800 number is not offered as the way to call the bank from Japan.",
+   "missing": [],
+   "basis": "",
    "turns": [
     {
      "user": "I was travelling in Japan and unauthorised transactions were made on my HDFC forex card.",
@@ -135,7 +155,9 @@
    "passed": true,
    "status": "pass",
    "fails": [],
-   "watch": "The company name is in the message. The reply says whether it is legitimate and does not ask the user to confirm the name they just sent. It also does not paste the job-fee template onto a recruitment email.",
+   "expected": "The company name is in the message. The reply says whether it is legitimate and does not ask the user to confirm the name they just sent. It also does not paste the job-fee template onto a recruitment email.",
+   "missing": [],
+   "basis": "",
    "turns": [
     {
      "user": "Is this legit? The email is from Ananya Mehta, Talent Acquisition Specialist at Crestwood Hiring Solutions, to Reshma Prasad. It says they are hiring for a client, asks her to review and update her profile, and the button says Review & Update Here.",
@@ -154,7 +176,9 @@
    "passed": true,
    "status": "pass",
    "fails": [],
-   "watch": "Money or the device is already gone. Give the real next step. Do not promise the money back.",
+   "expected": "Money or the device is already gone. Give the real next step. Do not promise the money back.",
+   "missing": [],
+   "basis": "",
    "turns": [
     {
      "user": "I was selling my sofa on OLX. The buyer sent a QR and said scan it to receive the money. I scanned it and entered my UPI PIN. Rs 12000 has left my account.",
@@ -174,7 +198,9 @@
    "passed": true,
    "status": "pass",
    "fails": [],
-   "watch": "Same QR loss. The reply stays in the user's language and still reaches 1930.",
+   "expected": "Same QR loss. The reply stays in the user's language and still reaches 1930.",
+   "missing": [],
+   "basis": "",
    "turns": [
     {
      "user": "मैं OLX पर सोफा बेच रहा था। खरीदार ने QR भेजा, मैंने स्कैन करके UPI पिन डाल दिया। खाते से 12000 रुपये कट गए।",
@@ -194,7 +220,9 @@
    "passed": true,
    "status": "pass",
    "fails": [],
-   "watch": "English wording from the side column of sheet row 11. Same job-fee check.",
+   "expected": "English wording from the side column of sheet row 11. Same job-fee check.",
+   "missing": [],
+   "basis": "",
    "turns": [
     {
      "user": "My sister received a WhatsApp message about a data entry job asking for ₹1,999 as a registration fee. Is this genuine?",
@@ -214,7 +242,9 @@
    "passed": true,
    "status": "pass",
    "fails": [],
-   "watch": "Sheet case 13. This is outside cyber-fraud help. Say so. Do not pretend to book a cab.",
+   "expected": "This is outside cyber-fraud help. Say so. Do not pretend to book a cab.",
+   "missing": [],
+   "basis": "",
    "turns": [
     {
      "user": "Can you help me book a cab to the airport tomorrow morning?",

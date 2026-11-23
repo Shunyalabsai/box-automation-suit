@@ -94,14 +94,32 @@ function renderCase(row) {
   summary.append(el("span", "id", row.id));
   summary.append(el("span", "tag " + row.status, STATUS[row.status] || row.status));
   details.append(summary);
-  const fails = row.fails || [];
-  if (fails.length) {
+  if (row.expected) {
+    const expected = el("p", "expected");
+    expected.append(el("strong", "", "Expected behaviour. "));
+    expected.append(document.createTextNode(row.expected));
+    details.append(expected);
+  }
+  const missing = row.missing || [];
+  if (missing.length) {
+    const gap = el("div", "missing");
+    gap.append(el("strong", "", "Missing in the bot response"));
+    const list = document.createElement("ul");
+    for (const line of missing) list.append(el("li", "", line));
+    gap.append(list);
+    details.append(gap);
+  } else if ((row.fails || []).length) {
     const why = el("p", "why");
-    why.append(el("strong", "", explain(fails[0]) + " "));
-    why.append(document.createTextNode(fails.join(", ")));
+    why.append(el("strong", "", explain(row.fails[0]) + " "));
+    why.append(document.createTextNode(row.fails.join(", ")));
     details.append(why);
   }
-  if (row.watch) details.append(el("p", "watch", row.watch));
+  if (row.basis) {
+    const basis = el("p", "basis");
+    basis.append(el("strong", "", "Basis of the check. "));
+    basis.append(document.createTextNode(row.basis));
+    details.append(basis);
+  }
   for (const turn of row.turns || []) {
     const block = el("div", "turn");
     block.append(el("div", "who", "User"));

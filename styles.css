@@ -108,8 +108,10 @@ h1 { font-size: 34px; line-height: 1.1; margin: 0; font-weight: 600; }
 .tag.still_failing, .tag.new_fail { background: var(--still-bg); color: var(--still); }
 .tag.fixed { background: var(--fixed-bg); color: var(--fixed); }
 .tag.pass { background: #eef2ee; color: var(--pass); }
-.why { margin: 8px 0 0; }
-.watch { margin: 4px 0 0; color: var(--muted); }
+.why, .expected, .basis { margin: 8px 0 0; }
+.missing { margin: 10px 0 0; }
+.missing ul { margin: 4px 0 0; padding-left: 18px; }
+.basis { color: var(--muted); }
 .turn { margin-top: 10px; font-size: 15px; }
 .turn .who { font: 12px "Avenir Next", "Segoe UI", sans-serif; color: var(--muted); }
 .empty { padding: 24px 0 48px; color: var(--muted); }
