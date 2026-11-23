@@ -1,0 +1,13 @@
+{
+  "published_at": null,
+  "server": "",
+  "counts": {
+    "cases": 0,
+    "pass": 0,
+    "fail": 0,
+    "regression": 0,
+    "still_failing": 0,
+    "fixed": 0
+  },
+  "results": []
+}
