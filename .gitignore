@@ -1,0 +1,6 @@
+eval/reports/*
+!eval/reports/.gitkeep
+eval/.suite-run.lock
+__pycache__/
+*.pyc
+.DS_Store
