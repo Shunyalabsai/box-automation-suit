@@ -1,13 +1,229 @@
 {
-  "published_at": null,
-  "server": "",
-  "counts": {
-    "cases": 0,
-    "pass": 0,
-    "fail": 0,
-    "regression": 0,
-    "still_failing": 0,
-    "fixed": 0
+ "published_at": "2026-11-23T10:41:14Z",
+ "label": "Smoke go-ahead",
+ "server": "https://boxxv3.shunyalabs.ai",
+ "reports": [
+  "smoke_happy-20261123T095954Z.json"
+ ],
+ "counts": {
+  "cases": 10,
+  "pass": 6,
+  "fail": 4,
+  "regression": 0,
+  "still_failing": 4,
+  "fixed": 0
+ },
+ "results": [
+  {
+   "id": "UAT-LK-05-income-tax-refund-en",
+   "suite": "smoke_happy",
+   "family": "UAT check a message",
+   "passed": false,
+   "status": "new_fail",
+   "fails": [
+    "MUST_MATCH_MISSING"
+   ],
+   "watch": "Sheet case 5. The domain is not an official government address. A department does not ask for bank details through an email link. Do not click.",
+   "turns": [
+    {
+     "user": "I got an email from 'incometax-refund@gov-in.org' saying I have a pending refund of ₹18,450, asking me to click a link and enter my bank account and PAN details to claim it. Is this genuine?",
+     "replies": [
+      "The email you received about an income tax refund of ₹18,450 is not genuine. The sender's email address 'incometax-refund@gov-in.org' is not an official government domain, and government bodies like the Income Tax Department never ask for bank account or PAN details via email or links for refunds.",
+      "Could you please tell me if you clicked on the link or shared any of your details?",
+      "I'm CyberCare+, your AI-powered cyber safety companion, not a human agent. I can help you spot scams, check suspicious messages and guide you if something goes wrong. What I share is general guidance, not legal, financial or insurance advice. ℹ️ This chat is saved securely so our team can help you. This is not an official police or government channel. CyberBoxx Cyber Services India Pvt. Limited, its shareholders, directors & officers accept no liability for any loss or damage arising from the u…"
+     ]
+    }
+   ]
   },
-  "results": []
+  {
+   "id": "UAT-FM-10-elderly-parents-en",
+   "suite": "smoke_happy",
+   "family": "UAT family protection",
+   "passed": false,
+   "status": "new_fail",
+   "fails": [
+    "MUST_MATCH_MISSING"
+   ],
+   "watch": "Sheet case 10. Practical steps: a family codeword, government agencies do not call to demand money, hang up and call a family member first. Reassuring, not an alarm that the scam has already happened.",
+   "turns": [
+    {
+     "user": "My parents live alone and I'm worried they'll fall for a fake police call or digital-arrest scam when I'm not around — what can I do to protect them?",
+     "replies": [
+      "It's very thoughtful of you to be looking into ways to protect your parents from these kinds of scams. Digital arrest and fake police calls often use threats and urgency to pressure people, but there are several ways to help them stay safe. There are six things to do here: 1. Agree a family code word 2. Explain how these calls work 3. Set social profiles to friends-only 4. Switch on SMS and app alerts 5. Lower UPI and card limits 6. Call only official numbers (card, app, website)",
+      "Let's start with the first one. Agree on a special word that only your family knows. If anyone calls your parents asking for money urgently, they should ask for this word. If the caller doesn't know it, your parents will know it's a scam. Please let me know once you've discussed this with them.",
+      "I'm CyberCare+, your AI-powered cyber safety companion, not a human agent. I can help you spot scams, check suspicious messages and guide you if something goes wrong. What I share is general guidance, not legal, financial or insurance advice. ℹ️ This chat is saved securely so our team can help you. This is not an official police or government channel. CyberBoxx Cyber Services India Pvt. Limited, its shareholders, directors & officers accept no liability for any loss or damage arising from the u…"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "UAT-EM-02-digital-arrest-customs-en",
+   "suite": "smoke_happy",
+   "family": "UAT live scam",
+   "passed": false,
+   "status": "new_fail",
+   "fails": [
+    "MUST_MATCH_MISSING"
+   ],
+   "watch": "Sheet case 2. Digital arrest is not a real legal procedure. Disconnect, do not transfer money or share Aadhaar and bank details, and do not treat the caller as a real officer.",
+   "turns": [
+    {
+     "user": "I got a call saying a parcel booked in my name was caught at Mumbai customs with drugs and a fake passport inside. He said he’s transferring the call to the Cyber Crime branch. Now a “police officer” is saying I need to share my Aadhaar number and bank details to prove my innocence or my account will be frozen",
+     "replies": [
+      "If the call is still on, hang up now. You do not have to stay on it.",
+      "This sounds like a digital arrest scam, where fraudsters pretend to be police or other authorities to scare you into sharing personal details. Real police will never ask you for your Aadhaar or bank details over the phone to prove your innocence.",
+      "Have you shared any of your details with them yet?",
+      "I'm CyberCare+, your AI-powered cyber safety companion, not a human agent. I can help you spot scams, check suspicious messages and guide you if something goes wrong. What I share is general guidance, not legal, financial or insurance advice. ℹ️ This chat is saved securely so our team can help you. This is not an official police or government channel. CyberBoxx Cyber Services India Pvt. Limited, its shareholders, directors & officers accept no liability for any loss or damage arising from the u…"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "UAT-EM-03-anydesk-code-en",
+   "suite": "smoke_happy",
+   "family": "UAT live scam",
+   "passed": false,
+   "status": "new_fail",
+   "fails": [
+    "NO_URGENT_ACTION(F2)",
+    "MUST_MATCH_MISSING"
+   ],
+   "watch": "Sheet case 3. Active emergency: do not share the AnyDesk code. Call the bank, and block or freeze so nothing further moves.",
+   "turns": [
+    {
+     "user": "Someone called saying they’re from my bank’s technical support team and my account has a ‘suspicious hold.’ They asked me to download AnyDesk and share the 9-digit code with them so they can ‘fix the issue remotely.’ I already installed the app — should I share the code?",
+     "replies": [
+      "Right now, turn off mobile data and Wi-Fi, then uninstall the app they asked you to install.",
+      "It sounds like someone is trying to gain remote access to your phone by asking you to share an AnyDesk code. You should absolutely not share that code with them. Nobody legitimate ever needs to see your screen or control your phone to help you.",
+      "Have you shared the code or any other information with them yet?",
+      "I'm CyberCare+, your AI-powered cyber safety companion, not a human agent. I can help you spot scams, check suspicious messages and guide you if something goes wrong. What I share is general guidance, not legal, financial or insurance advice. ℹ️ This chat is saved securely so our team can help you. This is not an official police or government channel. CyberBoxx Cyber Services India Pvt. Limited, its shareholders, directors & officers accept no liability for any loss or damage arising from the u…"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "CL-AB-01-japan-1800-does-not-work-en",
+   "suite": "smoke_happy",
+   "family": "Abroad and the helpline",
+   "passed": true,
+   "status": "pass",
+   "fails": [],
+   "watch": "An Indian 1800 number is not offered as the way to call the bank from Japan.",
+   "turns": [
+    {
+     "user": "I was travelling in Japan and unauthorised transactions were made on my HDFC forex card.",
+     "replies": [
+      "It's concerning to hear about the unauthorised transactions on your HDFC forex card while you were travelling in Japan. We can help you with the steps to claim for these. There are six things to do here: 1. Call your bank to block card/UPI 2. Call 1930 3. Tell your bank in writing 4. Save the screenshots and references 5. File the complaint at cybercrime.gov.in 6. File an FIR at the police station",
+      "Let's start with the most urgent step. Please call HDFC Bank now to block your card so no more money can be taken. You can find their international contact number on the back of your card or through their official app/net banking. When you get through, tell them exactly what happened and that these transactions were not made by you. Let me know once your card is blocked.",
+      "HDFC Bank's helpline: 1800 1600 / 1800 2600. The same number is on the back of your card. If you'd like me to take you through it step by step, just reply yes.",
+      "I'm CyberCare+, your AI-powered cyber safety companion, not a human agent. I can help you spot scams, check suspicious messages and guide you if something goes wrong. What I share is general guidance, not legal, financial or insurance advice. ℹ️ This chat is saved securely so our team can help you. This is not an official police or government channel. CyberBoxx Cyber Services India Pvt. Limited, its shareholders, directors & officers accept no liability for any loss or damage arising from the u…"
+     ]
+    },
+    {
+     "user": "You gave me HDFC 1800 1600. Can I call on this number while I am in Japan?",
+     "replies": [
+      "No, the 1800 numbers are usually toll-free within India and won't connect from Japan. To block your card, please use the international contact number for HDFC Bank, which you can find on the back of your forex card or in their official app/net banking. Call them now and ask them to block your card and turn off UPI, or freeze the account.",
+      "Still to do: Call your bank to block card/UPI. Tell me once it's done."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "CL-LEG-01-job-email-is-this-legit-en",
+   "suite": "smoke_happy",
+   "family": "Is this message legitimate",
+   "passed": true,
+   "status": "pass",
+   "fails": [],
+   "watch": "The company name is in the message. The reply says whether it is legitimate and does not ask the user to confirm the name they just sent. It also does not paste the job-fee template onto a recruitment email.",
+   "turns": [
+    {
+     "user": "Is this legit? The email is from Ananya Mehta, Talent Acquisition Specialist at Crestwood Hiring Solutions, to Reshma Prasad. It says they are hiring for a client, asks her to review and update her profile, and the button says Review & Update Here.",
+     "replies": [
+      "The email about a job from Crestwood Hiring Solutions asking Reshma to update her profile sounds suspicious because legitimate companies usually don't ask for profile updates through links in emails. This is a common tactic in job scams to get personal information.",
+      "Did Reshma click on the \"Review & Update Here\" link or share any information after receiving this email?",
+      "I'm CyberCare+, your AI-powered cyber safety companion, not a human agent. I can help you spot scams, check suspicious messages and guide you if something goes wrong. What I share is general guidance, not legal, financial or insurance advice. ℹ️ This chat is saved securely so our team can help you. This is not an official police or government channel. CyberBoxx Cyber Services India Pvt. Limited, its shareholders, directors & officers accept no liability for any loss or damage arising from the u…"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "SYN-LOSS-upi",
+   "suite": "smoke_happy",
+   "family": "Money or device already gone",
+   "passed": true,
+   "status": "pass",
+   "fails": [],
+   "watch": "Money or the device is already gone. Give the real next step. Do not promise the money back.",
+   "turns": [
+    {
+     "user": "I was selling my sofa on OLX. The buyer sent a QR and said scan it to receive the money. I scanned it and entered my UPI PIN. Rs 12000 has left my account.",
+     "replies": [
+      "It sounds like you were trying to sell your sofa on OLX and lost Rs 12,000 after scanning a QR code and entering your UPI PIN. This is a common scam; scanning a QR code and entering a UPI PIN only ever sends money out, you never need either to receive a payment. There are eight things to do here: 1. Call your bank to turn off UPI 2. Call 1930 3. Tell your bank in writing 4. Change your passwords, email first 5. Raise a dispute in the UPI app 6. Save the screenshots and references 7. File the co…",
+      "Let's start with the most urgent step. Please call your bank's helpline now to turn off UPI. When they pick up, tell them what happened and that it was not you who authorised the transaction. Let me know once this is done.",
+      "Which bank is your account with? I'll give you its verified helpline number.",
+      "I'm CyberCare+, your AI-powered cyber safety companion, not a human agent. I can help you spot scams, check suspicious messages and guide you if something goes wrong. What I share is general guidance, not legal, financial or insurance advice. ℹ️ This chat is saved securely so our team can help you. This is not an official police or government channel. CyberBoxx Cyber Services India Pvt. Limited, its shareholders, directors & officers accept no liability for any loss or damage arising from the u…"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "SYN-LANG-hi",
+   "suite": "smoke_happy",
+   "family": "Same loss, other languages",
+   "passed": true,
+   "status": "pass",
+   "fails": [],
+   "watch": "Same QR loss. The reply stays in the user's language and still reaches 1930.",
+   "turns": [
+    {
+     "user": "मैं OLX पर सोफा बेच रहा था। खरीदार ने QR भेजा, मैंने स्कैन करके UPI पिन डाल दिया। खाते से 12000 रुपये कट गए।",
+     "replies": [
+      "नमस्ते! मैं समझ सकती हूँ कि OLX पर सोफा बेचने की कोशिश में आपके साथ जो हुआ, उससे आप परेशान होंगी। यह एक आम UPI QR कोड स्कैन घोटाला है जहाँ धोखेबाज़ विक्रेता बनकर आपसे पैसे ठगते हैं। आपके 12,000 रुपये वापस पाने के लिए कुछ ज़रूरी कदम उठाने होंगे। कुल आठ चीज़ें हैं जो आपको करनी होंगी: 1. बैंक को कॉल करके UPI बंद करवाएँ 2. 1930 पर कॉल करें 3. बैंक को लिखित में बताएँ 4. पासवर्ड बदलें, पहले ईमेल का 5. UPI ऐप में डिस्प्यूट दर्ज करें 6. स्क्रीनशॉट और रेफ़रेंस सुरक्षित रखें 7. cybercrime.gov.in पर शिकाय…",
+      "सबसे पहले, अपने बैंक की हेल्पलाइन पर तुरंत कॉल करके अपना UPI बंद करवा दें। यह सबसे ज़रूरी है ताकि और पैसे न निकलें। फ़ोन उठने पर बताइए कि क्या हुआ और यह आपने नहीं किया। मुझे बताएं कि यह हो जाए तो।",
+      "आपका खाता किस बैंक में है? मैं आपको उसका सत्यापित हेल्पलाइन नंबर दूँगी।",
+      "मैं CyberCare+ हूँ, आपकी AI-आधारित साइबर सुरक्षा साथी, कोई इंसान एजेंट नहीं। मैं स्कैम पहचानने, संदिग्ध मैसेज जाँचने और कुछ गलत होने पर सही कदम बताने में आपकी मदद कर सकती हूँ। मैं जो बताती हूँ वह सामान्य मार्गदर्शन है, कानूनी, वित्तीय या बीमा सलाह नहीं। ℹ️ यह चैट सुरक्षित रूप से सहेजी जाती है ताकि हमारी टीम आपकी मदद कर सके। यह कोई आधिकारिक पुलिस या सरकारी चैनल नहीं है। CyberBoxx Cyber Services India Pvt. Limited, इसके शेयरधारक, निदेशक और अधिकारी इस जानकारी के उपयोग से होने वाले किसी भी नुकसान य…"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "UAT-FM-11-job-registration-fee-en",
+   "suite": "smoke_happy",
+   "family": "UAT family protection",
+   "passed": true,
+   "status": "pass",
+   "fails": [],
+   "watch": "English wording from the side column of sheet row 11. Same job-fee check.",
+   "turns": [
+    {
+     "user": "My sister received a WhatsApp message about a data entry job asking for ₹1,999 as a registration fee. Is this genuine?",
+     "replies": [
+      "A job offer that asks for a registration fee, like the ₹1,999 your sister was asked to pay for the data entry job, is usually a scam. Real employers don't ask you to pay money to get a job.",
+      "Has your sister paid any money or shared any personal details yet?",
+      "Do not pay anything, no fee, no fine, no ransom. Paying never gets money back.",
+      "I'm CyberCare+, your AI-powered cyber safety companion, not a human agent. I can help you spot scams, check suspicious messages and guide you if something goes wrong. What I share is general guidance, not legal, financial or insurance advice. ℹ️ This chat is saved securely so our team can help you. This is not an official police or government channel. CyberBoxx Cyber Services India Pvt. Limited, its shareholders, directors & officers accept no liability for any loss or damage arising from the u…"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "UAT-OT-13-book-a-cab-en",
+   "suite": "smoke_happy",
+   "family": "UAT something else",
+   "passed": true,
+   "status": "pass",
+   "fails": [],
+   "watch": "Sheet case 13. This is outside cyber-fraud help. Say so. Do not pretend to book a cab.",
+   "turns": [
+    {
+     "user": "Can you help me book a cab to the airport tomorrow morning?",
+     "replies": [
+      "I understand you're looking to book a cab to the airport for tomorrow morning. This chat service can't directly book cabs for you. You'll need to use a cab booking app or a cab service to arrange your ride.",
+      "I'm CyberCare+, your AI-powered cyber safety companion, not a human agent. I can help you spot scams, check suspicious messages and guide you if something goes wrong. What I share is general guidance, not legal, financial or insurance advice. ℹ️ This chat is saved securely so our team can help you. This is not an official police or government channel. CyberBoxx Cyber Services India Pvt. Limited, its shareholders, directors & officers accept no liability for any loss or damage arising from the u…"
+     ]
+    }
+   ]
+  }
+ ]
 }

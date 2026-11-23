@@ -159,8 +159,10 @@ async function load() {
   if (!latest.published_at) {
     meta.textContent = "No run published yet.";
   } else {
-    meta.textContent = when(latest.published_at) + (latest.server ? "  ·  " + latest.server : "")
-      + "  ·  " + (latest.counts?.pass || 0) + " passing of " + (latest.counts?.cases || 0);
+    meta.textContent = (latest.label ? latest.label + "  ·  " : "")
+      + when(latest.published_at) + (latest.server ? "  ·  " + latest.server : "")
+      + "  ·  " + (latest.counts?.pass || 0) + " passing, "
+      + (latest.counts?.fail || 0) + " failing, of " + (latest.counts?.cases || 0);
   }
   renderStats(latest);
   renderHistory(history);

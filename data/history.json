@@ -1,1 +1,9 @@
-[]
+[
+ {
+  "published_at": "2026-11-23T10:41:14Z",
+  "pass": 6,
+  "fail": 4,
+  "regression": 0,
+  "fixed": 0
+ }
+]
