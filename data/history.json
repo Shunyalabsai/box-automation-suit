@@ -113,5 +113,16 @@
   "fail": 1,
   "regression": 0,
   "fixed": 1
+ },
+ {
+  "published_at": "2026-11-24T08:32:43Z",
+  "environment": "production",
+  "environment_label": "Production",
+  "label": "Production · UAT EM permutations (12)",
+  "server": "https://boxxv3.shunyalabs.ai",
+  "pass": 9,
+  "fail": 3,
+  "regression": 1,
+  "fixed": 1
  }
 ]
