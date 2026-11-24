@@ -144,9 +144,11 @@ function renderCase(row) {
     for (const line of missing) panel.append(el("p", "", line));
   }
   const chat = el("div", "chat");
+  const planned = row.turn_count || (row.turns || []).length;
   (row.turns || []).forEach((turn, index) => {
     const user = el("div", "bubble user");
-    user.append(el("div", "who", "Person · step " + (index + 1)));
+    const stepLabel = planned > 1 ? "Person · step " + (index + 1) + " of " + planned : "Person · step " + (index + 1);
+    user.append(el("div", "who", stepLabel));
     user.append(document.createTextNode(turn.user || ""));
     chat.append(user);
     const replies = (turn.replies || []).filter((reply) => !isNotice(reply));

@@ -340,9 +340,9 @@ def turns_of(result: dict) -> list[dict]:
         user = turn.get("user")
         if isinstance(user, dict):
             user = user.get("text") or ""
-        replies = [clip(reply, 500) for reply in (turn.get("replies") or [])[:4]]
-        out.append({"user": clip(user or "", 500), "replies": replies})
-    return out[:8]
+        replies = [clip(reply, 1200) for reply in (turn.get("replies") or [])[:6]]
+        out.append({"user": clip(user or "", 800), "replies": replies})
+    return out[:16]
 
 
 def status_for(case_id: str, passed: bool, previous: dict[str, bool]) -> str:
