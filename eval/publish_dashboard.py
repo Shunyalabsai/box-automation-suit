@@ -35,6 +35,7 @@ REMOTE = os.environ.get(
 
 LABELS = {
     "smoke_happy": "UAT happy paths (15)",
+    "uat_adaptive_journey": "UAT adaptive journeys (pilot)",
     "synthetic_journeys": "Full journey catalogue",
     "client_2026_11_23": "23 Nov client screenshots",
     "client_uat_sheet": "Client UAT sheet",
@@ -376,13 +377,16 @@ def build(report_paths: list[pathlib.Path], previous: dict[str, bool]) -> dict:
             meta = notes.get(case_id) or {}
             expect = meta.get("expect") if isinstance(meta.get("expect"), dict) else {}
             gap = gap_for(expect, row, fails)
-            results.append({
+            journey = row.get("journey") if isinstance(row.get("journey"), dict) else {}
+            title = meta.get("smoke_title") or row.get("smoke_title") or ""
+            sheet_row = meta.get("sheet_row") or row.get("sheet_row") or ""
+            entry = {
                 "id": case_id,
                 "suite": suite,
                 "family": family_of(case_id),
-                "sheet_row": meta.get("sheet_row") or "",
-                "title": meta.get("smoke_title") or "",
-                "turn_count": len(row.get("turns") or []),
+                "sheet_row": sheet_row,
+                "title": title,
+                "turn_count": journey.get("turn_count") or len(row.get("turns") or []),
                 "passed": passed,
                 "status": status_for(case_id, passed, previous),
                 "fails": fails,
@@ -390,7 +394,19 @@ def build(report_paths: list[pathlib.Path], previous: dict[str, bool]) -> dict:
                 "missing": gap["missing"],
                 "basis": gap["basis"],
                 "turns": turns_of(row),
-            })
+            }
+            if journey:
+                entry["journey"] = {
+                    "mode": journey.get("mode") or "adaptive",
+                    "stop_reason": journey.get("stop_reason") or "",
+                    "journey_complete": bool(journey.get("journey_complete")),
+                    "resolution_met": bool(journey.get("resolution_met")),
+                    "first_fail_step": journey.get("first_fail_step"),
+                    "max_turns": journey.get("max_turns"),
+                    "milestones": journey.get("milestones") or {},
+                    "steps": journey.get("steps") or [],
+                }
+            results.append(entry)
     order = {"regression": 0, "new_fail": 1, "still_failing": 2, "fixed": 3, "pass": 4}
     results.sort(key=lambda row: (order.get(row["status"], 9), row["family"], row["id"]))
     counts = {

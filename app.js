@@ -130,7 +130,8 @@ function renderCase(row) {
   if (row.turn_count > 1) meta.push(row.turn_count + " steps");
   if (row.journey && row.journey.mode === "adaptive") {
     const j = row.journey;
-    if (j.first_fail_step) meta.push("broke at step " + j.first_fail_step);
+    if (j.resolution_met) meta.push("resolution reached");
+    else if (j.first_fail_step) meta.push("broke at step " + j.first_fail_step);
     else if (j.journey_complete) meta.push("reached end");
     else if (j.stop_reason) meta.push("stopped: " + j.stop_reason.replace(/_/g, " "));
   }
@@ -158,9 +159,14 @@ function renderCase(row) {
   }
   const chat = el("div", "chat");
   const planned = row.turn_count || (row.turns || []).length;
+  const adaptive = row.journey && row.journey.mode === "adaptive";
   (row.turns || []).forEach((turn, index) => {
     const user = el("div", "bubble user");
-    const stepLabel = planned > 1 ? "Person · step " + (index + 1) + " of " + planned : "Person · step " + (index + 1);
+    const stepLabel = adaptive
+      ? "Person · step " + (index + 1) + (planned > 1 ? " (" + planned + " turns)" : "")
+      : planned > 1
+        ? "Person · step " + (index + 1) + " of " + planned
+        : "Person · step " + (index + 1);
     user.append(el("div", "who", stepLabel));
     user.append(document.createTextNode(turn.user || ""));
     chat.append(user);
