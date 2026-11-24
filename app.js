@@ -39,6 +39,12 @@ function familyName(name) {
   return FAMILIES[name] || name || "Other";
 }
 
+function displayTitle(row) {
+  const title = row.title || "";
+  if (title.trim()) return title.trim();
+  return shortTitle(row.id);
+}
+
 function shortTitle(id) {
   let parts = String(id || "").split("-").filter(Boolean);
   if (["UAT", "SYN", "CL"].includes(parts[0])) parts = parts.slice(1);
@@ -102,7 +108,11 @@ function renderScore(data) {
   const row = el("div", "score-row");
   row.append(el("b", "ok", pass + " passed"));
   row.append(el("b", "no", fail + " failed"));
-  const bits = [data.label, when(data.published_at), host(data.server)].filter(Boolean);
+  if (data.environment_label) {
+    const env = el("span", "env " + (data.environment || "other"), data.environment_label);
+    row.append(env);
+  }
+  const bits = [when(data.published_at), host(data.server)].filter(Boolean);
   if (c.regression) bits.push(c.regression + " newly broken");
   if (c.fixed) bits.push(c.fixed + " fixed");
   row.append(el("span", "", bits.join(" · ")));
@@ -115,7 +125,11 @@ function renderCase(row) {
   details.className = "case " + (failed ? "fail" : "pass");
   const summary = document.createElement("summary");
   const missing = gaps(row);
-  summary.append(el("div", "name", shortTitle(row.id)));
+  const meta = [];
+  if (row.sheet_row) meta.push("Sheet row " + row.sheet_row);
+  if (row.turn_count > 1) meta.push(row.turn_count + " steps");
+  summary.append(el("div", "name", displayTitle(row)));
+  if (meta.length) summary.append(el("div", "meta", meta.join(" · ")));
   summary.append(el("div", "reason", missing.slice(0, 2).join(" · ") || (failed ? "A required step is missing" : "Did what this check asks")));
   summary.append(el("span", "pill " + (failed ? "fail" : "pass"), failed ? "Failed" : "Passed"));
   details.append(summary);
@@ -130,9 +144,9 @@ function renderCase(row) {
     for (const line of missing) panel.append(el("p", "", line));
   }
   const chat = el("div", "chat");
-  for (const turn of row.turns || []) {
+  (row.turns || []).forEach((turn, index) => {
     const user = el("div", "bubble user");
-    user.append(el("div", "who", "Person"));
+    user.append(el("div", "who", "Person · step " + (index + 1)));
     user.append(document.createTextNode(turn.user || ""));
     chat.append(user);
     const replies = (turn.replies || []).filter((reply) => !isNotice(reply));
@@ -140,7 +154,7 @@ function renderCase(row) {
     bot.append(el("div", "who", "Bot"));
     bot.append(document.createTextNode(replies.join("\n\n") || "No reply"));
     chat.append(bot);
-  }
+  });
   panel.append(chat);
   details.append(panel);
   return details;
@@ -200,7 +214,10 @@ async function load() {
   const headline = document.getElementById("headline");
   if (!latest.published_at) headline.textContent = "No check yet";
   else if (!c.fail) headline.textContent = "All " + (c.cases || 0) + " passed";
-  else headline.textContent = c.fail + " of " + (c.cases || 0) + " failed";
+  else {
+    const env = latest.environment_label ? latest.environment_label + " · " : "";
+    headline.textContent = env + c.fail + " of " + (c.cases || 0) + " failed";
+  }
   document.querySelector(".mark").style.background = c.fail ? "var(--bad)" : "var(--good)";
   renderScore(latest);
   labelButtons(latest);

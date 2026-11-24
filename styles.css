@@ -60,6 +60,17 @@ h1 { margin: 0; font-size: 22px; font-weight: 650; letter-spacing: -0.03em; }
 .score-row .ok { color: var(--good); }
 .score-row .no { color: var(--bad); }
 .score-row span, .meta { margin-left: auto; color: var(--muted); font-size: 12px; }
+.env {
+  margin-left: auto;
+  font-size: 11px;
+  font-weight: 650;
+  border-radius: 99px;
+  padding: 3px 8px;
+}
+.env.staging { background: #fff4e5; color: #9a5b00; }
+.env.production { background: #e8f0ff; color: #2458a6; }
+.env.other { background: #eee; color: #555; }
+.case .meta { color: var(--muted); font-size: 11px; margin-top: 2px; }
 .tools {
   display: flex;
   gap: 8px;

@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""Write the latest conversation-test reports onto this repository's page.
+"""Publish the latest conversation-test reports to the dashboard repo.
 
-The suites, the runner, and the page all live here. GitHub Pages reads
-data/latest.json, so a person can open one page and see what failed.
+The tests stay in this repo. GitHub Pages on
+https://github.com/Shunyalabsai/box-automation-suit only stores the result,
+so a person can open one page and see what failed.
 
 A case that passed on the previous publish and fails on this one is marked
 regression: an existing flow this run affected. A case that was already
@@ -32,7 +33,7 @@ REMOTE = os.environ.get(
 )
 
 LABELS = {
-    "smoke_happy": "Smoke go-ahead",
+    "smoke_happy": "UAT happy paths (15)",
     "synthetic_journeys": "Full journey catalogue",
     "client_2026_11_23": "23 Nov client screenshots",
     "client_uat_sheet": "Client UAT sheet",
@@ -54,6 +55,28 @@ FAMILIES = (
     ("UAT family protection", "UAT-FM-"),
     ("UAT something else", "UAT-OT-"),
 )
+
+
+def environment_of(server: str) -> str:
+    explicit = os.environ.get("BOXX_EVAL_ENV", "").strip().lower()
+    if explicit in ("staging", "stage", "stg"):
+        return "staging"
+    if explicit in ("production", "prod", "live"):
+        return "production"
+    host = str(server or "").lower()
+    if "staging" in host or "boxx-staging" in host:
+        return "staging"
+    if "boxxv3" in host or ":8200" in host:
+        return "production"
+    return "other"
+
+
+def environment_label(name: str) -> str:
+    return {
+        "staging": "Staging",
+        "production": "Production",
+        "other": "Other host",
+    }.get(name, name or "Unknown")
 
 
 def family_of(case_id: str) -> str:
@@ -101,6 +124,8 @@ def suite_notes() -> dict[str, dict]:
                 "note": case.get("note") or "",
                 "watch": watch,
                 "expect": expect,
+                "sheet_row": case.get("sheet_row") or "",
+                "smoke_title": case.get("smoke_title") or "",
             }
     return notes
 
@@ -354,6 +379,9 @@ def build(report_paths: list[pathlib.Path], previous: dict[str, bool]) -> dict:
                 "id": case_id,
                 "suite": suite,
                 "family": family_of(case_id),
+                "sheet_row": meta.get("sheet_row") or "",
+                "title": meta.get("smoke_title") or "",
+                "turn_count": len(row.get("turns") or []),
                 "passed": passed,
                 "status": status_for(case_id, passed, previous),
                 "fails": fails,
@@ -376,10 +404,16 @@ def build(report_paths: list[pathlib.Path], previous: dict[str, bool]) -> dict:
     for path in report_paths:
         stem = path.name.split("-")[0]
         names.append(LABELS.get(stem, stem))
+    server = ", ".join(dict.fromkeys(servers))
+    environment = environment_of(server)
+    env_tag = environment_label(environment)
+    title = ", ".join(dict.fromkeys(names))
     return {
         "published_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-        "label": ", ".join(dict.fromkeys(names)),
-        "server": ", ".join(dict.fromkeys(servers)),
+        "label": f"{env_tag} · {title}",
+        "environment": environment,
+        "environment_label": env_tag,
+        "server": server,
         "reports": [path.name for path in report_paths],
         "counts": counts,
         "results": results,
@@ -414,6 +448,10 @@ def publish(payload: dict, checkout: pathlib.Path, push: bool) -> None:
     counts = payload["counts"]
     history.append({
         "published_at": payload["published_at"],
+        "environment": payload.get("environment") or "",
+        "environment_label": payload.get("environment_label") or "",
+        "label": payload.get("label") or "",
+        "server": payload.get("server") or "",
         "pass": counts["pass"],
         "fail": counts["fail"],
         "regression": counts["regression"],
@@ -450,14 +488,11 @@ def main() -> int:
     paths = [pathlib.Path(item) for item in args.report] or newest(
         "smoke_happy-*.json")
     if not paths:
-        raise SystemExit("no reports in eval/reports/. Run make smoke or make full first.")
+        raise SystemExit("no reports in eval/reports/. Run make eval-conv-synthetic first.")
     missing = [str(path) for path in paths if not path.is_file()]
     if missing:
         raise SystemExit("missing report: " + ", ".join(missing))
 
-    # This file lives in the same repository as the page, so a run writes
-    # data/ here and pushes. Cloning a second copy is only for a checkout
-    # that does not already contain the page.
     if args.checkout:
         checkout = pathlib.Path(args.checkout)
     elif (ROOT / "index.html").is_file():

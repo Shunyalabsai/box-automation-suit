@@ -15,7 +15,9 @@ export TEST_API_KEY=the-key-from-the-team
 make smoke
 ```
 
-`make smoke` runs ten journeys and takes about five minutes. It is the quick go-ahead check.
+`make smoke` runs all fifteen UAT happy paths (seven are multi-turn) and takes about eight to ten minutes.
+
+`make smoke-stage` runs against staging. `make smoke-prod` runs against production and updates the page.
 
 `make full` runs the whole catalogue, about 136 conversations, and takes about an hour.
 
