@@ -498,6 +498,8 @@ def main() -> int:
         raise SystemExit("missing report: " + ", ".join(missing))
 
     own_checkout = pathlib.Path(args.checkout) if args.checkout else None
+    if not own_checkout and (ROOT / "index.html").is_file():
+        own_checkout = ROOT
     if not own_checkout and not args.push:
         own_checkout = ROOT / "eval" / "reports" / "dashboard"
         own_checkout.mkdir(parents=True, exist_ok=True)

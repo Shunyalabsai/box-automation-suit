@@ -11,7 +11,7 @@ smoke:
 	  python3 eval/run_partner_p0.py --suite eval/suites/smoke_happy.jsonl \
 	  --cooldown 5 \
 	  --out eval/reports/smoke_happy-$(STAMP).json
-	@BOXX_EVAL_ENV="$(BOXX_EVAL_ENV)" python3 eval/publish_dashboard.py \
+	@BOXX_EVAL_ENV="$(BOXX_EVAL_ENV)" python3 eval/publish_dashboard.py --push \
 	  --report eval/reports/smoke_happy-$(STAMP).json
 	@python3 eval/synthetic_report.py \
 	  --report eval/reports/smoke_happy-$(STAMP).json \
