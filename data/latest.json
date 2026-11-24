@@ -1,19 +1,19 @@
 {
- "published_at": "2026-11-24T07:34:18Z",
+ "published_at": "2026-11-24T07:47:26Z",
  "label": "Production · UAT adaptive journeys (pilot)",
  "environment": "production",
  "environment_label": "Production",
  "server": "https://boxxv3.shunyalabs.ai",
  "reports": [
-  "uat_adaptive_journey-20261124T073238Z.json"
+  "uat_adaptive_journey-20261124T074435Z.json"
  ],
  "counts": {
   "cases": 2,
-  "pass": 0,
-  "fail": 2,
+  "pass": 1,
+  "fail": 1,
   "regression": 0,
-  "still_failing": 2,
-  "fixed": 0
+  "still_failing": 1,
+  "fixed": 1
  },
  "results": [
   {
@@ -22,7 +22,7 @@
    "family": "UAT live scam",
    "sheet_row": "1",
    "title": "EM 01 family accident call",
-   "turn_count": 2,
+   "turn_count": 8,
    "passed": false,
    "status": "still_failing",
    "fails": [
@@ -30,7 +30,6 @@
    ],
    "expected": "Distress or impersonation: calm the person, tell them to verify with the family member on a known number before any money moves, and do not ask for an OTP or bank details.",
    "missing": [
-    "None of these were in the reply: known number; call him; call your son; verify; confirm with.",
     "None of these were in the reply: don't send; don't transfer; do not send; do not transfer; before you send; before you transfer; before you pay."
    ],
    "basis": "The whole reply is checked. Each required part must appear. A part passes when any one of its phrases appears. Case does not matter.",
@@ -38,38 +37,148 @@
     {
      "user": "My son just called me crying, said he's been in an accident and needs ₹50,000 transferred right now to a hospital account, he sounded scared and hung up quickly. I don't know what to do.",
      "replies": [
-      "It sounds very frightening to get a call like that about your son, and it's good you reached out before sending any money. This sounds like an impersonation scam, where fraudsters pretend to be a loved one in an emergency to get you to transfer money quickly. Have you already sent the ₹50,000? There are five things to do here: 1. Call only official numbers (card, app, website) 2. Report it on Chakshu (sancharsaathi.gov.in) 3. Warn family about impersonation 4. Agree a family secret word 5. Tell family how this scam works",
-      "First, please check with your son directly, on a number or channel you already use, not by replying to the message or call. This is the quickest way to confirm if he is safe. Let me know once you've been able to do that.",
+      "It sounds incredibly frightening to get a call like that from your son, especially when he sounded so distressed and needed money urgently for a hospital. This is a common type of impersonation scam designed to make you act quickly without thinking. First, we need to make sure your son is safe. There are five things to do here: 1. Call only official numbers (card, app, website) 2. Report it on Chakshu (sancharsaathi.gov.in) 3. Warn family about impersonation calls 4. Agree a family secret word 5. Explain how this scam works",
+      "Let's start with the most urgent step: please try to reach your son directly on his usual number or through someone else in the family, not by replying to the message or call you just received. This will help you verify if he is truly in an emergency. Please let me know once you've tried this.",
       "I'm CyberCare+, your AI-powered cyber safety companion, not a human agent. I can help you spot scams, check suspicious messages and guide you if something goes wrong. What I share is general guidance, not legal, financial or insurance advice. ℹ️ This chat is saved securely so our team can help you. This is not an official police or government channel. CyberBoxx Cyber Services India Pvt. Limited, its shareholders, directors & officers accept no liability for any loss or damage arising from the use of this information."
      ]
     },
     {
      "user": "I called my son on his usual saved number. He is fine and says he never called about any accident or hospital payment.",
      "replies": [
-      "It's a huge relief to know your son is safe. Scammers can now use AI to fake a familiar voice, or even a face on a video call. So even if it sounds or looks like someone you know, that alone is not proof it is really them, that is exactly what makes this trick work.",
-      "Next, please report this call on Sanchar Saathi's Chakshu portal at sancharsaathi.gov.in. Let me know once you've done that. If you'd like me to take you through it step by step, just reply yes."
+      "That's a huge relief to hear your son is safe and well.",
+      "Scammers can now use AI to fake a familiar voice, or even a face on a video call. So even if it sounds or looks like someone you know, that alone is not proof it is really them, that is exactly what makes this trick work. If you'd like me to take you through it step by step, just reply yes."
+     ]
+    },
+    {
+     "user": "Yes, please guide me step by step.",
+     "replies": [
+      "Okay, let's report this call on Chakshu. Here's how to do it:",
+      "1. Go to the Sanchar Saathi website: sancharsaathi.gov.in 2. On the homepage, click on the \"Chakshu\" option. 3. Fill out the form with the details of the call you received, including the phone number it came from and a brief description of what happened. Please let me know once you've done this, or if you get stuck at any point."
+     ]
+    },
+    {
+     "user": "OK, I will report it on the Chakshu portal now.",
+     "replies": [
+      "Thanks for letting me know you'll report it on Chakshu. Please tell me once you've completed it, or if you have any trouble with the website."
+     ]
+    },
+    {
+     "user": "OK, I will report it on the Chakshu portal now. I have completed that now.",
+     "replies": [
+      "Well done for reporting it on Chakshu.",
+      "The next important step is to warn your family members, especially those who might be vulnerable, that someone might try to impersonate you or another relative. Tell them that if they get an urgent call asking for money, they should always call back on a number they already know is correct for that person, and not just reply to the message or call they just received. If you'd like me to take you through it step by step, just reply yes."
+     ]
+    },
+    {
+     "user": "Thank you, I understand. I will verify with family before any payment.",
+     "replies": [
+      "That's good that you're going to verify with family. Now, let's set up a secret word with your family.",
+      "Choose a word that only your close family members know. If anyone calls asking for urgent money, you can ask them for this secret word. If they don't know it, you'll know it's not really your family member."
+     ]
+    },
+    {
+     "user": "Thank you, I understand. I will verify with family before any payment. I have completed that now.",
+     "replies": [
+      "That's great that you've set up a secret word with your family.",
+      "Now, it's important to tell your whole family exactly how this call worked, so they can spot a similar scam before any money is sent."
+     ]
+    },
+    {
+     "user": "Yes, that step is fully done.",
+     "replies": [
+      "You've done everything that needs doing right now to protect yourself and your family from this scam. Your bank or the cybercrime helpline will contact you if they need anything further.",
+      "Remember to always verify urgent requests by calling on a known number, and use the secret family word you set up. If anything changes or you hear anything new, you can message here anytime.",
+      "Talk to someone about how this is sitting with you. Tele-MANAS on 14416 is free and 24x7.",
+      "Which bank is your account with? I'll give you its verified helpline number.",
+      "*All done* Thanks for chatting with us. We hope that helps. Can we help with anything else?"
      ]
     }
    ],
    "journey": {
     "mode": "adaptive",
-    "stop_reason": "persona_loop",
-    "journey_complete": false,
-    "first_fail_step": 3,
+    "stop_reason": "bot_closure",
+    "journey_complete": true,
+    "resolution_met": false,
+    "first_fail_step": null,
+    "max_turns": 16,
+    "milestones": {
+     "verified_son": true,
+     "chakshu_done": false,
+     "hung_up": false,
+     "bank_called": false
+    },
     "steps": [
      {
       "step": 1,
-      "status": "fail",
+      "status": "warn",
       "issues": [
-       "OPENING_RUBRIC_GAP"
+       "RUBRIC_NOT_MET_YET"
       ],
-      "bot_chars": 1271
+      "bot_chars": 1348,
+      "rubric_met_by_here": false
      },
      {
       "step": 2,
       "status": "warn",
-      "issues": [],
-      "bot_chars": 461
+      "issues": [
+       "RUBRIC_NOT_MET_YET"
+      ],
+      "bot_chars": 347,
+      "rubric_met_by_here": false
+     },
+     {
+      "step": 3,
+      "status": "warn",
+      "issues": [
+       "RUBRIC_NOT_MET_YET"
+      ],
+      "bot_chars": 395,
+      "rubric_met_by_here": false
+     },
+     {
+      "step": 4,
+      "status": "warn",
+      "issues": [
+       "RUBRIC_NOT_MET_YET"
+      ],
+      "bot_chars": 141,
+      "rubric_met_by_here": false
+     },
+     {
+      "step": 5,
+      "status": "warn",
+      "issues": [
+       "RUBRIC_NOT_MET_YET"
+      ],
+      "bot_chars": 478,
+      "rubric_met_by_here": false
+     },
+     {
+      "step": 6,
+      "status": "warn",
+      "issues": [
+       "RUBRIC_NOT_MET_YET"
+      ],
+      "bot_chars": 308,
+      "rubric_met_by_here": false
+     },
+     {
+      "step": 7,
+      "status": "warn",
+      "issues": [
+       "RUBRIC_NOT_MET_YET"
+      ],
+      "bot_chars": 196,
+      "rubric_met_by_here": false
+     },
+     {
+      "step": 8,
+      "status": "warn",
+      "issues": [
+       "RUBRIC_NOT_MET_YET"
+      ],
+      "bot_chars": 633,
+      "rubric_met_by_here": false
      }
     ]
    }
@@ -81,8 +190,8 @@
    "sheet_row": "2",
    "title": "EM 02 digital arrest customs",
    "turn_count": 6,
-   "passed": false,
-   "status": "still_failing",
+   "passed": true,
+   "status": "fixed",
    "fails": [
     "MUST_MATCH_MISSING"
    ],
@@ -96,88 +205,115 @@
      "user": "I got a call saying a parcel booked in my name was caught at Mumbai customs with drugs and a fake passport inside. He said he’s transferring the call to the Cyber Crime branch. Now a “police officer” is saying I need to share my Aadhaar number and bank details to prove my innocence or my account will be frozen",
      "replies": [
       "If the call is still on, hang up now. You do not have to stay on it.",
-      "It sounds like you're getting a \"digital arrest\" scam call, where fraudsters pretend to be police and threaten you with legal action. Police will never ask for your Aadhaar or bank details over the phone for verification.",
-      "Have you shared any of your details with them yet?",
+      "It sounds like a really frightening call about a parcel and drugs, and it's good you're checking before sharing any details. The police or any official agency will never ask you for your Aadhaar number or bank details over the phone to prove your innocence or threaten to freeze your account. This is a common tactic in digital arrest scams.",
+      "Have you shared any of your details or paid any money yet?",
       "I'm CyberCare+, your AI-powered cyber safety companion, not a human agent. I can help you spot scams, check suspicious messages and guide you if something goes wrong. What I share is general guidance, not legal, financial or insurance advice. ℹ️ This chat is saved securely so our team can help you. This is not an official police or government channel. CyberBoxx Cyber Services India Pvt. Limited, its shareholders, directors & officers accept no liability for any loss or damage arising from the use of this information."
      ]
     },
     {
      "user": "No, I have not shared my Aadhaar, bank details, or paid any money.",
      "replies": [
-      "That's good to hear that you haven't shared any details or money. There are three things to do here: 1. Call your bank to block card/UPI 2. Call only official numbers (card, app, website) 3. Report it on Chakshu (sancharsaathi.gov.in)",
-      "Let's start with the first step. Please call your account helpline now to block the card or UPI, so no more money leaves your account. When they pick up, tell them what happened and that it was not you. Let me know once this is done.",
+      "That's really good that you haven't shared any details or money. That means we can act quickly to protect you. There are three things to do here: 1. Call your bank to block card/UPI 2. Call only official numbers (card, app, website) 3. Report it on Chakshu (sancharsaathi.gov.in)",
+      "Let's start with the first one. Please call your account helpline now to block the card or UPI, so no more money leaves. When they pick up, tell them what happened and that it was not you. I can tell you exactly what to say. Let me know once this is done.",
       "Which bank is your account with? I'll give you its verified helpline number."
      ]
     },
     {
      "user": "My account is with State Bank of India (SBI).",
      "replies": [
-      "Okay, for State Bank of India (SBI), you can call their helpline at 1800 1234. Please call them now and ask them to block your card and turn off UPI, or freeze your account completely."
+      "Thanks for letting me know your bank is SBI. Please call their helpline at 1800 1234 now and ask them to block your card and turn off UPI, or freeze your account. You can also find this number on the back of your debit card or in the official SBI mobile app."
      ]
     },
     {
-     "user": "Thank you. I will not share any details and will ignore further calls.",
+     "user": "I called the SBI helpline at the number on my card and blocked my card and UPI.",
      "replies": [
-      "That's a good plan to ignore further calls. Now, please call SBI at 1800 1234 to block your card and turn off UPI, or freeze your account completely. Let me know once this is done."
+      "That's excellent that you've blocked your card and UPI with SBI.",
+      "Now, for the next step, it's important to verify any official calls independently. If you get another call claiming to be from the police or any official agency, please hang up. Then, call them back on a number you already have from a trusted source, like the official SBI app or the back of your debit card. This helps confirm you're speaking to a genuine representative."
      ]
     },
     {
-     "user": "I called the SBI helpline and asked them to block my card and UPI. That is done.",
+     "user": "OK, I hung up just now. The call is disconnected.",
      "replies": [
-      "That's great that you've blocked your card and UPI with SBI.",
-      "Now, for the next step, if you're still on a call with these people, please hang up immediately. Then, call your bank back on the official SBI helpline number 1800 1234, or any number you have from the back of your card or their official app. This is to make sure you are only speaking to genuine bank representatives."
+      "That's good that you hung up the call.",
+      "Still to do: Call only official numbers (card, app, website). Tell me once it's done."
      ]
     },
     {
-     "user": "They say I will be arrested if I hang up. Should I disconnect anyway?",
+     "user": "Thank you, I have done all of that.",
      "replies": [
-      "Yes, you should disconnect the call. The threat of arrest is a common tactic in these scams to scare you into doing what they want. Real police will not arrest you for hanging up a phone call."
+      "It's good to hear you've completed all the steps. You've done everything that needs to be done right now to protect yourself from this scam.",
+      "If anything changes or you hear anything further about this, you can message here anytime.",
+      "*All done* Thanks for chatting with us. We hope that helps. Can we help with anything else?"
      ]
     }
    ],
    "journey": {
     "mode": "adaptive",
-    "stop_reason": "persona_loop",
-    "journey_complete": false,
-    "first_fail_step": 7,
+    "stop_reason": "resolution_then_closure",
+    "journey_complete": true,
+    "resolution_met": true,
+    "first_fail_step": null,
+    "max_turns": 16,
+    "milestones": {
+     "verified_son": false,
+     "chakshu_done": false,
+     "hung_up": true,
+     "bank_called": true
+    },
     "steps": [
      {
       "step": 1,
-      "status": "fail",
+      "status": "warn",
       "issues": [
-       "OPENING_RUBRIC_GAP"
+       "RUBRIC_NOT_MET_YET"
       ],
-      "bot_chars": 864
+      "bot_chars": 992,
+      "rubric_met_by_here": false
      },
      {
       "step": 2,
       "status": "warn",
-      "issues": [],
-      "bot_chars": 543
+      "issues": [
+       "RUBRIC_NOT_MET_YET"
+      ],
+      "bot_chars": 610,
+      "rubric_met_by_here": false
      },
      {
       "step": 3,
-      "status": "ok",
-      "issues": [],
-      "bot_chars": 184
+      "status": "warn",
+      "issues": [
+       "RUBRIC_NOT_MET_YET"
+      ],
+      "bot_chars": 258,
+      "rubric_met_by_here": false
      },
      {
       "step": 4,
-      "status": "ok",
-      "issues": [],
-      "bot_chars": 180
+      "status": "warn",
+      "issues": [
+       "RUBRIC_NOT_MET_YET"
+      ],
+      "bot_chars": 436,
+      "rubric_met_by_here": false
      },
      {
       "step": 5,
-      "status": "ok",
-      "issues": [],
-      "bot_chars": 378
+      "status": "warn",
+      "issues": [
+       "RUBRIC_NOT_MET_YET"
+      ],
+      "bot_chars": 123,
+      "rubric_met_by_here": false
      },
      {
       "step": 6,
-      "status": "ok",
-      "issues": [],
-      "bot_chars": 192
+      "status": "warn",
+      "issues": [
+       "RUBRIC_NOT_MET_YET"
+      ],
+      "bot_chars": 322,
+      "rubric_met_by_here": false
      }
     ]
    }
