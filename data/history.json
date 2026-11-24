@@ -91,5 +91,16 @@
   "fail": 2,
   "regression": 1,
   "fixed": 0
+ },
+ {
+  "published_at": "2026-11-24T07:34:18Z",
+  "environment": "production",
+  "environment_label": "Production",
+  "label": "Production · UAT adaptive journeys (pilot)",
+  "server": "https://boxxv3.shunyalabs.ai",
+  "pass": 0,
+  "fail": 2,
+  "regression": 0,
+  "fixed": 0
  }
 ]
