@@ -9,7 +9,8 @@ A case that passed on the previous publish and fails on this one is marked
 regression: an existing flow this run affected. A case that was already
 failing stays "still failing".
 
-    python3 eval/publish_dashboard.py
+    python3 eval/publish_dashboard.py                      # write eval/reports/dashboard/ only
+    python3 eval/publish_dashboard.py --push               # and push it to the dashboard repo
     python3 eval/publish_dashboard.py --report eval/reports/synthetic_journeys-*.json
 """
 from __future__ import annotations
@@ -483,7 +484,10 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--report", action="append", default=[])
     parser.add_argument("--checkout", default="")
-    parser.add_argument("--no-push", action="store_true")
+    # OPT-IN (24 Nov): publishing sends the client's test cases and the bot's replies to the dashboard repo, so it
+    # happens only when asked for. Without --push the page data is written to eval/reports/dashboard/ only.
+    parser.add_argument("--push", action="store_true",
+                        help="push the result to the dashboard repo (BOXX_DASHBOARD_REPO); otherwise write it locally")
     args = parser.parse_args()
     paths = [pathlib.Path(item) for item in args.report] or newest(
         "smoke_happy-*.json")
@@ -493,22 +497,20 @@ def main() -> int:
     if missing:
         raise SystemExit("missing report: " + ", ".join(missing))
 
-    if args.checkout:
-        checkout = pathlib.Path(args.checkout)
-    elif (ROOT / "index.html").is_file():
-        checkout = ROOT
-    else:
-        checkout = None
-    if checkout is not None:
-        payload = build(paths, previous_verdicts(checkout / "data" / "latest.json"))
-        publish(payload, checkout, push=not args.no_push)
+    own_checkout = pathlib.Path(args.checkout) if args.checkout else None
+    if not own_checkout and not args.push:
+        own_checkout = ROOT / "eval" / "reports" / "dashboard"
+        own_checkout.mkdir(parents=True, exist_ok=True)
+    if own_checkout:
+        payload = build(paths, previous_verdicts(own_checkout / "data" / "latest.json"))
+        publish(payload, own_checkout, push=args.push)
         return 0
 
     with tempfile.TemporaryDirectory(prefix="box-dashboard-") as tmp:
         checkout = pathlib.Path(tmp) / "repo"
         subprocess.run(["git", "clone", "--depth", "1", REMOTE, str(checkout)], check=True)
         payload = build(paths, previous_verdicts(checkout / "data" / "latest.json"))
-        publish(payload, checkout, push=not args.no_push)
+        publish(payload, checkout, push=True)
     return 0
 
 
