@@ -58,5 +58,16 @@
   "fail": 7,
   "regression": 0,
   "fixed": 1
+ },
+ {
+  "published_at": "2026-11-24T06:41:58Z",
+  "environment": "production",
+  "environment_label": "Production",
+  "label": "Production · UAT happy paths (15)",
+  "server": "https://boxxv3.shunyalabs.ai",
+  "pass": 7,
+  "fail": 8,
+  "regression": 2,
+  "fixed": 1
  }
 ]
