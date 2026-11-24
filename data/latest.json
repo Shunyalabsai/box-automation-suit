@@ -1,237 +1,85 @@
 {
- "published_at": "2026-11-24T06:52:05Z",
- "label": "Production · UAT happy paths (15)",
+ "published_at": "2026-11-24T07:27:58Z",
+ "label": "Production · UAT adaptive journeys (pilot)",
  "environment": "production",
  "environment_label": "Production",
  "server": "https://boxxv3.shunyalabs.ai",
  "reports": [
-  "smoke_happy-20261124T064338Z.json"
+  "uat_adaptive_journey-20261124T072621Z.json"
  ],
  "counts": {
-  "cases": 15,
-  "pass": 6,
-  "fail": 9,
+  "cases": 2,
+  "pass": 0,
+  "fail": 2,
   "regression": 1,
-  "still_failing": 8,
+  "still_failing": 1,
   "fixed": 0
  },
  "results": [
   {
-   "id": "UAT-OT-14-vague-distress-hi",
-   "suite": "smoke_happy",
-   "family": "UAT something else",
-   "sheet_row": "",
-   "title": "",
-   "turn_count": 3,
+   "id": "UAT-EM-01-family-accident-call-en",
+   "suite": "uat_adaptive_journey",
+   "family": "UAT live scam",
+   "sheet_row": "1",
+   "title": "EM 01 family accident call",
+   "turn_count": 2,
    "passed": false,
    "status": "regression",
    "fails": [
-    "FORBIDDEN_CONTENT_PRESENT"
-   ],
-   "expected": "Empathy first, then a gentle question about what happened, such as whether money left or an account was compromised. Do not guess a recovery plan.",
-   "missing": [
-    "The reply contains this, and it must not: 1930."
-   ],
-   "basis": "The reply must not contain a phrase from the forbidden list.",
-   "turns": [
-    {
-     "user": "मुझे कुछ समझ नहीं आ रहा, लगता है मेरा सब कुछ चला गया।",
-     "replies": [
-      "मुझे समझ आ रहा है कि आप अभी बहुत परेशान महसूस कर रही हैं और आपको लग रहा है कि आपका सब कुछ चला गया है। मैं आपकी मदद करने के लिए यहां हूं।",
-      "क्या आप मुझे बता सकती हैं कि आपके साथ क्या हुआ है?",
-      "मैं CyberCare+ हूँ, आपकी AI-आधारित साइबर सुरक्षा साथी, कोई इंसान एजेंट नहीं। मैं स्कैम पहचानने, संदिग्ध मैसेज जाँचने और कुछ गलत होने पर सही कदम बताने में आपकी मदद कर सकती हूँ। मैं जो बताती हूँ वह सामान्य मार्गदर्शन है, कानूनी, वित्तीय या बीमा सलाह नहीं। ℹ️ यह चैट सुरक्षित रूप से सहेजी जाती है ताकि हमारी टीम आपकी मदद कर सके। यह कोई आधिकारिक पुलिस या सरकारी चैनल नहीं है। CyberBoxx Cyber Services India Pvt. Limited, इसके शेयरधारक, निदेशक और अधिकारी इस जानकारी के उपयोग से होने वाले किसी भी नुकसान या क्षति के लिए कोई ज़िम्मेदारी नहीं लेते।"
-     ]
-    },
-    {
-     "user": "मुझे लगता है किसी ने मेरे खाते से पैसे निकाले हैं, पर पूरा यकीन नहीं है।",
-     "replies": [
-      "मुझे पता है कि आपको अभी यकीन नहीं है कि आपके अकाउंट से पैसे निकले हैं या नहीं। यह जानना बहुत ज़रूरी है, ताकि हम आगे सही कदम उठा सकें।",
-      "सबसे पहले, कृपया अपने बैंक अकाउंट का स्टेटमेंट या पासबुक चेक करके पक्का करें कि कोई अनधिकृत (unauthorised) लेनदेन हुआ है या नहीं। अगर आपके पास बैंक ऐप है, तो उसमें भी आप अपना बैलेंस और हाल के ट्रांज़ैक्शन देख सकती हैं।"
-     ]
-    },
-    {
-     "user": "हाँ, करीब ₹5,000 UPI से गया लेकिन मैंने खुद भेजा नहीं। अब पहला कदम क्या होना चाहिए?",
-     "replies": [
-      "मुझे पता है कि यह सब बहुत परेशान करने वाला है, लेकिन घबराइए नहीं। हम अभी भी कुछ कदम उठा सकते हैं। यह कैसे हुआ, यह अभी पक्के तौर पर नहीं कहा जा सकता, लेकिन अक्सर यह किसी फ़र्ज़ी कॉल, लिंक या ऐप के ज़रिए OTP, PIN या कार्ड की जानकारी साझा करने से होता है। आपका बैंक यह पता लगा सकता है कि पैसा किस रास्ते गया। पैसे वापस मिलने की कोई गारंटी नहीं है, लेकिन अगर आप जल्दी 1930 पर कॉल करती हैं तो पैसे फ्रीज़ हो सकते हैं, और अगर आप 3 कार्य दिवसों के भीतर बैंक को लिखित में बताती हैं, तो आपको नुकसान नहीं उठाना पड़ेगा। आपके लिए अभी 8 ज़रूरी काम हैं: 1. बैंक को कॉल करके UPI बंद करवाएँ 2. 1930 पर कॉल करें 3. बैंक को लिखित में बताएँ 4. पासवर्ड बदलें, पहले ईमेल का 5. UPI ऐप में डिस्प्यूट दर्ज करें 6. स्क्रीनशॉट और रेफ़रेंस सुरक्षित रखें 7. cybercrime.gov.in पर शिकायत दर्ज करें 8. पुलिस स्टेशन में FIR दर्ज करें",
-      "सबसे पहले, अपने बैंक की हेल्पलाइन पर कॉल करके तुरंत अपने UPI को बंद करवाएँ। जब फ़ोन उठे, तो उन्हें बताइए कि क्या हुआ है और यह लेनदेन आपने नहीं किया है। मुझे बताएं जब यह हो जाए।",
-      "आपका खाता किस बैंक में है? मैं आपको उसका सत्यापित हेल्पलाइन नंबर दूँगी।"
-     ]
-    }
-   ]
-  },
-  {
-   "id": "UAT-LK-05-income-tax-refund-en",
-   "suite": "smoke_happy",
-   "family": "UAT check a message",
-   "sheet_row": "",
-   "title": "",
-   "turn_count": 1,
-   "passed": false,
-   "status": "still_failing",
-   "fails": [
     "MUST_MATCH_MISSING"
    ],
-   "expected": "The domain is not an official government address. A department does not ask for bank details through an email link. Do not click.",
+   "expected": "Distress or impersonation: calm the person, tell them to verify with the family member on a known number before any money moves, and do not ask for an OTP or bank details.",
    "missing": [
-    "None of these were in the reply: don't click; do not click; don't enter; do not enter; do not open."
+    "None of these were in the reply: don't send; don't transfer; do not send; do not transfer; before you send; before you transfer; before you pay."
    ],
    "basis": "The whole reply is checked. Each required part must appear. A part passes when any one of its phrases appears. Case does not matter.",
    "turns": [
     {
-     "user": "I got an email from 'incometax-refund@gov-in.org' saying I have a pending refund of ₹18,450, asking me to click a link and enter my bank account and PAN details to claim it. Is this genuine?",
+     "user": "My son just called me crying, said he's been in an accident and needs ₹50,000 transferred right now to a hospital account, he sounded scared and hung up quickly. I don't know what to do.",
      "replies": [
-      "That email about an income tax refund of ₹18,450 asking for your bank and PAN details is not genuine. The sender's address 'incometax-refund@gov-in.org' is not an official government domain, and government bodies like the Income Tax Department will never ask for your bank account or PAN details via email or ask you to click a link for a refund.",
-      "Did you click on the link in the email or enter any of your details on it?",
-      "I'm CyberCare+, your AI-powered cyber safety companion, not a human agent. I can help you spot scams, check suspicious messages and guide you if something goes wrong. What I share is general guidance, not legal, financial or insurance advice. ℹ️ This chat is saved securely so our team can help you. This is not an official police or government channel. CyberBoxx Cyber Services India Pvt. Limited, its shareholders, directors & officers accept no liability for any loss or damage arising from the use of this information."
-     ]
-    }
-   ]
-  },
-  {
-   "id": "UAT-LK-06-flipkart-lucky-draw-mr",
-   "suite": "smoke_happy",
-   "family": "UAT check a message",
-   "sheet_row": "",
-   "title": "",
-   "turn_count": 1,
-   "passed": false,
-   "status": "still_failing",
-   "fails": [
-    "MUST_MATCH_MISSING"
-   ],
-   "expected": "A prize or lottery link. Do not open it or share personal or bank details. A real brand does not pay a prize this way.",
-   "missing": [
-    "None of these were in the reply: उघडू नका; क्लिक करू नका; don't click; do not click; शेअर करू नका; do not share."
-   ],
-   "basis": "The whole reply is checked. Each required part must appear. A part passes when any one of its phrases appears. Case does not matter.",
-   "turns": [
-    {
-     "user": "मला WhatsApp वर मेसेज आला की मी Flipkart lucky draw मध्ये 25,000 रुपये जिंकलो आहे, क्लेम करण्यासाठी हा लिंक उघडा.",
-     "replies": [
-      "तुम्हाला Flipkart च्या लकी ड्रॉबद्दल जो मेसेज आला आहे, तो एक प्रकारचा स्कॅम (फसवणूक) आहे. Flipkart किंवा इतर कोणतीही कंपनी तुम्हाला अशा प्रकारे WhatsApp वरून लॉटरी जिंकल्याचे मेसेज पाठवत नाही किंवा लिंकवर क्लिक करायला सांगत नाही. हे लोक तुम्हाला फसवण्यासाठी असे मेसेज पाठवतात.",
-      "मी एक AI असिस्टंट आहे, माणूस एजंट नाही. मी जे सांगते ते सर्वसाधारण मार्गदर्शन आहे, कायदेशीर, आर्थिक किंवा विमा सल्ला नाही. ℹ️ ही चॅट सुरक्षितपणे जतन केली जाते जेणेकरून आमची टीम तुम्हाला मदत करू शकेल. हे अधिकृत पोलीस किंवा सरकारी चॅनेल नाही. CyberBoxx Cyber Services India Pvt. Limited, तिचे भागधारक, संचालक आणि अधिकारी या माहितीच्या वापरामुळे होणाऱ्या कोणत्याही नुकसानीची किंवा हानीची जबाबदारी घेत नाहीत."
-     ]
-    }
-   ]
-  },
-  {
-   "id": "UAT-FM-10-elderly-parents-en",
-   "suite": "smoke_happy",
-   "family": "UAT family protection",
-   "sheet_row": "",
-   "title": "",
-   "turn_count": 3,
-   "passed": false,
-   "status": "still_failing",
-   "fails": [
-    "MUST_MATCH_MISSING"
-   ],
-   "expected": "Practical steps: a family codeword, government agencies do not call to demand money, hang up and call a family member first. Reassuring, not an alarm that the scam has already happened.",
-   "missing": [
-    "None of these were in the reply: \"never\" within a few words of \"money\"; \"never\" within a few words of \"payment\"; \"do not\" within a few words of \"money\"; \"do not\" within a few words of \"payment\"; \"don't\" within a few words of \"money\"; \"don't\" within a few words of \"payment\"."
-   ],
-   "basis": "The whole reply is checked. Each required part must appear. A part passes when any one of its phrases appears. Case does not matter.",
-   "turns": [
-    {
-     "user": "My parents live alone and I'm worried they'll fall for a fake police call or digital-arrest scam when I'm not around — what can I do to protect them?",
-     "replies": [
-      "It's very thoughtful of you to be proactive about protecting your parents from scams like fake police calls or digital arrest. There are six things you can do to help keep them safe: 1. Agree a family code word 2. Explain how this call works 3. Set social profiles to friends-only 4. Switch on SMS and app alerts 5. Lower UPI and card limits 6. Call only official numbers (card, app, website)",
-      "Let's start with the first one: agree on a special word that only your family knows. If anyone, even a supposed official, calls asking for urgent money, your parents should ask for this word. If the caller doesn't know it, they should hang up immediately. Please let me know once you've discussed this with your parents.",
+      "It sounds very frightening to get a call like that, especially when it seems to be your son in distress asking for money. This sounds like an impersonation scam, where fraudsters pretend to be someone you know to create urgency. We can't know for certain yet if your son is okay, but we need to verify this directly. There are five things to do here: 1. Call only official numbers (card, app, website) 2. Report it on Chakshu (sancharsaathi.gov.in) 3. Warn family about impersonation calls 4. Agree a family safe word for money requests 5. Tell the family how this scam works",
+      "First, please try to reach your son directly on a number or channel you already use, not by replying to the message or call you just received. Let me know once you've tried that.",
       "I'm CyberCare+, your AI-powered cyber safety companion, not a human agent. I can help you spot scams, check suspicious messages and guide you if something goes wrong. What I share is general guidance, not legal, financial or insurance advice. ℹ️ This chat is saved securely so our team can help you. This is not an official police or government channel. CyberBoxx Cyber Services India Pvt. Limited, its shareholders, directors & officers accept no liability for any loss or damage arising from the use of this information."
      ]
     },
     {
-     "user": "They got another call today from someone claiming to be police. What should they do right now?",
+     "user": "Done, I will block the number and not respond to those calls anymore.",
      "replies": [
-      "They should hang up the phone immediately and not engage with the caller any further. Any continued interaction only gives the scammer more information to use.",
-      "Still to do: Agree a word only your family knows. Tell me once it's done."
-     ]
-    },
-    {
-     "user": "They hung up and called me. Anything else they should remember for the next time?",
-     "replies": [
-      "That's good they hung up and called you. The most important thing for them to remember for next time is the family code word you agreed upon. Have you been able to set that up with them yet?"
+      "That's good that you've been able to reach your son and confirm he is safe.",
+      "Now, the next step is to report the call on Sanchar Saathi's Chakshu portal. You can find it at sancharsaathi.gov.in. Please let me know once you've done that. If you'd like me to take you through it step by step, just reply yes."
      ]
     }
-   ]
-  },
-  {
-   "id": "UAT-FM-12-matrimonial-money-mr",
-   "suite": "smoke_happy",
-   "family": "UAT family protection",
-   "sheet_row": "",
-   "title": "",
-   "turn_count": 1,
-   "passed": false,
-   "status": "still_failing",
-   "fails": [
-    "MUST_MATCH_MISSING"
    ],
-   "expected": "Romance or matrimonial pattern. Do not send money to someone not met in person. Verify who they are first.",
-   "missing": [
-    "None of these were in the reply: पाठवू नका; देऊ नका; do not send; don't send."
-   ],
-   "basis": "The whole reply is checked. Each required part must appear. A part passes when any one of its phrases appears. Case does not matter.",
-   "turns": [
-    {
-     "user": "मी एका मॅट्रिमोनिअल अ‍ॅपवर भेटलेल्या व्यक्तीशी बोलत आहे, अजून प्रत्यक्ष भेटलो नाही, पण आता ती व्यक्ती मेडिकल इमर्जन्सीसाठी पैसे मागत आहे.",
-     "replies": [
-      "तुम्ही मॅट्रिमोनिअल ॲपवर भेटलेल्या व्यक्तीबद्दल बोलत आहात आणि ती व्यक्ती आता मेडिकल इमर्जन्सीसाठी पैसे मागत आहे, हे ऐकून मला काळजी वाटली. अशा प्रकारच्या विनंत्या अनेकदा 'रोमान्स स्कॅम'चा भाग असू शकतात, जिथे स्कॅमर तुमची सहानुभूती मिळवून पैसे उकळण्याचा प्रयत्न करतात.",
-      "तुम्ही त्यांना काही पैसे पाठवले आहेत का?",
-      "मी एक AI असिस्टंट आहे, माणूस एजंट नाही. मी जे सांगते ते सर्वसाधारण मार्गदर्शन आहे, कायदेशीर, आर्थिक किंवा विमा सल्ला नाही. ℹ️ ही चॅट सुरक्षितपणे जतन केली जाते जेणेकरून आमची टीम तुम्हाला मदत करू शकेल. हे अधिकृत पोलीस किंवा सरकारी चॅनेल नाही. CyberBoxx Cyber Services India Pvt. Limited, तिचे भागधारक, संचालक आणि अधिकारी या माहितीच्या वापरामुळे होणाऱ्या कोणत्याही नुकसानीची किंवा हानीची जबाबदारी घेत नाहीत."
-     ]
-    }
-   ]
-  },
-  {
-   "id": "UAT-FM-16-father-new-phone-en",
-   "suite": "smoke_happy",
-   "family": "UAT family protection",
-   "sheet_row": "",
-   "title": "",
-   "turn_count": 3,
-   "passed": false,
-   "status": "still_failing",
-   "fails": [
-    "MUST_MATCH_MISSING"
-   ],
-   "expected": "Extra note under the sheet. A parent who is new to a smartphone: do not share OTPs, do not install or open unknown links, and check with family before paying anyone. This is prevention, not an incident already in progress.",
-   "missing": [
-    "None of these were in the reply: otp; one-time."
-   ],
-   "basis": "The whole reply is checked. Each required part must appear. A part passes when any one of its phrases appears. Case does not matter.",
-   "turns": [
-    {
-     "user": "my father is 64 years he has recently started using smart phone, i want to keep him safe and make sure he is not targeted by cyber frauds what should i do?",
-     "replies": [
-      "It's really thoughtful of you to look into ways to protect your father as he starts using a smartphone. There are six steps you can take to help keep him safe from cyber fraud: 1. Agree a family safety word 2. Explain how scam calls work 3. Set social profiles to friends-only 4. Switch on SMS and app alerts 5. Lower UPI and card limits 6. Call only official numbers (card, app, website)",
-      "Let's start with the first one: agree on a special word that only your family knows. If anyone ever asks for money urgently, especially if it's a message or call, he should ask for this word to make sure it's really a family member. Please let me know once you've had a chance to discuss this with him.",
-      "I'm CyberCare+, your AI-powered cyber safety companion, not a human agent. I can help you spot scams, check suspicious messages and guide you if something goes wrong. What I share is general guidance, not legal, financial or insurance advice. ℹ️ This chat is saved securely so our team can help you. This is not an official police or government channel. CyberBoxx Cyber Services India Pvt. Limited, its shareholders, directors & officers accept no liability for any loss or damage arising from the use of this information."
-     ]
-    },
-    {
-     "user": "He got a WhatsApp link to complete KYC. Should he open it?",
-     "replies": [
-      "It's good that you asked before opening the link. Opening suspicious links, especially for something like KYC, can be risky because they often lead to fake websites designed to steal personal information or install harmful software.",
-      "Did your relative click on the link or enter any details on it?"
-     ]
-    },
-    {
-     "user": "No, he has not opened it. How do I explain that to him in simple words?",
-     "replies": [
-      "It's really good that he hasn't opened it. You can explain to him that these messages try to trick people into giving away their information by making them click on links that look real but are fake.",
-      "Now, here are three things to do with that message: 1. Block the sender, before deleting the message. 2. Report it to the bank or company it pretended to be, in their official app. 3. Report it on Sanchar Saathi's Chakshu at sancharsaathi.gov.in."
-     ]
-    }
-   ]
+   "journey": {
+    "mode": "adaptive",
+    "stop_reason": "persona_loop",
+    "journey_complete": false,
+    "first_fail_step": 3,
+    "steps": [
+     {
+      "step": 1,
+      "status": "fail",
+      "issues": [
+       "OPENING_EXPECTATION_MISS"
+      ],
+      "bot_chars": 1278
+     },
+     {
+      "step": 2,
+      "status": "warn",
+      "issues": [],
+      "bot_chars": 305
+     }
+    ]
+   }
   },
   {
    "id": "UAT-EM-02-digital-arrest-customs-en",
-   "suite": "smoke_happy",
+   "suite": "uat_adaptive_journey",
    "family": "UAT live scam",
-   "sheet_row": "",
-   "title": "",
-   "turn_count": 3,
+   "sheet_row": "2",
+   "title": "EM 02 digital arrest customs",
+   "turn_count": 2,
    "passed": false,
    "status": "still_failing",
    "fails": [
@@ -247,282 +95,41 @@
      "user": "I got a call saying a parcel booked in my name was caught at Mumbai customs with drugs and a fake passport inside. He said he’s transferring the call to the Cyber Crime branch. Now a “police officer” is saying I need to share my Aadhaar number and bank details to prove my innocence or my account will be frozen",
      "replies": [
       "If the call is still on, hang up now. You do not have to stay on it.",
-      "It sounds very frightening to get a call saying a parcel with drugs was caught in your name, and then to be asked for your Aadhaar and bank details by someone claiming to be from Cyber Crime. This is a digital arrest scam, and real police or government agencies will never ask you for personal details or to transfer money over the phone to prove your innocence.",
-      "Have you shared any of your details or paid any money to them yet?",
+      "It sounds like you're dealing with a \"digital arrest\" scam, which uses threats about parcels and police to scare people. The police will never ask you for your Aadhaar or bank details over the phone.",
+      "Have you shared any of these details or paid any money yet?",
       "I'm CyberCare+, your AI-powered cyber safety companion, not a human agent. I can help you spot scams, check suspicious messages and guide you if something goes wrong. What I share is general guidance, not legal, financial or insurance advice. ℹ️ This chat is saved securely so our team can help you. This is not an official police or government channel. CyberBoxx Cyber Services India Pvt. Limited, its shareholders, directors & officers accept no liability for any loss or damage arising from the use of this information."
      ]
     },
     {
-     "user": "The call is still on. They are shouting and say I will be arrested if I hang up.",
+     "user": "They are shouting that I will be arrested if I hang up. Should I disconnect now?",
      "replies": [
-      "They are trying to scare you into staying on the call by shouting and threatening arrest, but you can hang up safely. Real police will never threaten you like this or ask for details over the phone.",
-      "Has any money left your account, or have you shared any details like an OTP, PIN or card number with them?"
-     ]
-    },
-    {
-     "user": "I hung up. They are calling back from another number. Should I answer?",
-     "replies": [
-      "No, do not answer calls from them. They are trying to scare you into giving them money or personal information, and blocking their numbers will stop them from reaching you."
+      "Yes, please disconnect the call immediately. They are trying to scare you into staying on the line, but you will not be arrested for hanging up.",
+      "Have you shared any of your details or paid any money yet?"
      ]
     }
-   ]
-  },
-  {
-   "id": "UAT-EM-03-anydesk-code-en",
-   "suite": "smoke_happy",
-   "family": "UAT live scam",
-   "sheet_row": "",
-   "title": "",
-   "turn_count": 1,
-   "passed": false,
-   "status": "still_failing",
-   "fails": [
-    "NO_URGENT_ACTION(F2)"
    ],
-   "expected": "Active emergency: do not share the AnyDesk code. Call the bank, and block or freeze so nothing further moves.",
-   "missing": [
-    "No immediate step was in the reply."
-   ],
-   "basis": "An emergency must include an immediate step: hang up, call the bank, block or freeze, or 1930.",
-   "turns": [
-    {
-     "user": "Someone called saying they’re from my bank’s technical support team and my account has a ‘suspicious hold.’ They asked me to download AnyDesk and share the 9-digit code with them so they can ‘fix the issue remotely.’ I already installed the app — should I share the code?",
-     "replies": [
-      "Right now, turn off mobile data and Wi-Fi, then uninstall the app they asked you to install.",
-      "No, please do not share that code. This sounds like a remote access scam where someone pretends to be from your bank's technical support and tries to get control of your device. Nobody legitimate ever needs to see your screen or control your phone to help you.",
-      "Have you shared the code with them or given them remote access to your phone?",
-      "I'm CyberCare+, your AI-powered cyber safety companion, not a human agent. I can help you spot scams, check suspicious messages and guide you if something goes wrong. What I share is general guidance, not legal, financial or insurance advice. ℹ️ This chat is saved securely so our team can help you. This is not an official police or government channel. CyberBoxx Cyber Services India Pvt. Limited, its shareholders, directors & officers accept no liability for any loss or damage arising from the use of this information."
-     ]
-    }
-   ]
-  },
-  {
-   "id": "UAT-CL-07-policy-phishing-covered-en",
-   "suite": "smoke_happy",
-   "family": "UAT policy and claim",
-   "sheet_row": "",
-   "title": "",
-   "turn_count": 3,
-   "passed": false,
-   "status": "still_failing",
-   "fails": [
-    "MUST_MATCH_MISSING"
-   ],
-   "expected": "Read the attached Digital Suraksha schedule: phishing and an unauthorised digital transaction are covered, Rs 18,000 is inside the Rs 50,000 sum insured, report on 1930 or cybercrime.gov.in first, then claim with Bajaj within 90 days. Do not promise that the payout is guaranteed.",
-   "missing": [
-    "None of these were in the reply: cover.",
-    "None of these were in the reply: 50,000.",
-    "None of these were in the reply: [Bb]ajaj.",
-    "None of these were in the reply: 90."
-   ],
-   "basis": "The whole reply is checked. Each required part must appear. A part passes when any one of its phrases appears. Case does not matter.",
-   "turns": [
-    {
-     "user": "I’m attaching my Digital Suraksha insurance policy copy. Yesterday I clicked a phishing SMS link pretending to be my bank, entered my netbanking OTP on the fake page, and ₹18,000 got transferred out of my account online without my authorization. Does my policy cover this, and how do I file a claim?",
-     "replies": [
-      "*Thanks for your patience* This is taking a little longer than usual. Your message is safe with us and we are still working on it.",
-      "You're right, this was a phishing attack, and it's completely understandable to be distressed when money leaves your account like this. No bank, officer or company will ever ask for an OTP, PIN or password. Your Digital Suraksha policy may help depending on its terms, and your policy document outlines the steps for filing a claim. Nobody can tell for certain yet how this happened, but usually an OTP, PIN or card details reached a fraudster through a call, a fake link or an app, and your bank can see which way the money went. Nobody can promise to get the money back, but calling 1930 fast can get it frozen, and telling the bank in writing within 3 working days can mean you do not bear the loss (RBI). There are seven things to do here: 1. Call your bank to block card/UPI 2. Call 1930 3. Tell your bank in writing 4. Change your passwords, email first 5. Save the screenshots and references 6. File the complaint at cybercrime.gov.in 7. File an FIR at the police station",
-      "Let's start with the most urgent step: call your bank's helpline now to block your credit card and net banking. Whatever details you typed on that fake page are now with the fraudsters. When they pick up, tell them what happened and that it was not you. Let me know once this is done.",
-      "Which bank is your account with? I'll give you its verified helpline number.",
-      "I'm CyberCare+, your AI-powered cyber safety companion, not a human agent. I can help you spot scams, check suspicious messages and guide you if something goes wrong. What I share is general guidance, not legal, financial or insurance advice. ℹ️ This chat is saved securely so our team can help you. This is not an official police or government channel. CyberBoxx Cyber Services India Pvt. Limited, its shareholders, directors & officers accept no liability for any loss or damage arising from the use of this information."
-     ]
-    },
-    {
-     "user": "Yes, ₹18,000 already left my account. What is the first step I should take for the claim?",
-     "replies": [
-      "Step 1: Call your bank to block card/UPI. I understand you want to start the claim. Your policy says to report to cybercrime.gov.in first. Have you been able to do that yet?"
-     ]
-    },
-    {
-     "user": "I have called 1930 and saved the complaint reference. What do I do for the Bajaj claim?",
-     "replies": [
-      "Well done getting through to 1930 and saving the reference!",
-      "Still to do: Call your bank to block card/UPI. Tell me once it's done."
-     ]
-    }
-   ]
-  },
-  {
-   "id": "UAT-LK-04-bank-kyc-sms-hi",
-   "suite": "smoke_happy",
-   "family": "UAT check a message",
-   "sheet_row": "",
-   "title": "",
-   "turn_count": 4,
-   "passed": true,
-   "status": "pass",
-   "fails": [],
-   "expected": "Urgency, a shortened link, and a KYC pretext. Do not click. Check only in the bank's official app or at a branch.",
-   "missing": [],
-   "basis": "",
-   "turns": [
-    {
-     "user": "SMS मिला है: 'Your bank account will be suspended in 24 hours. Complete your KYC now: http://bit.ly/sbi-kyc-update'. Is this real?",
-     "replies": [
-      "मैं इस मैसेज के असली होने की पुष्टि नहीं कर सकती: इसमें दिया लिंक बैंक की सत्यापित वेबसाइट नहीं है, इसलिए इस पर क्लिक न करें। जाँचने के लिए अपने बैंक का आधिकारिक ऐप खोलें या कार्ड के पीछे लिखे नंबर पर कॉल करें।",
-      "नमस्ते! बैंक कभी भी आपको KYC अपडेट करने के लिए ऐसे लिंक पर क्लिक करने के लिए नहीं कहते हैं और न ही 24 घंटे में अकाउंट सस्पेंड करने की धमकी देते हैं। यह एक तरह का फ्रॉड मैसेज है।",
-      "क्या आपने इस लिंक पर क्लिक किया था या इस पर कोई जानकारी डाली या शेयर की है?",
-      "क्या आपने लिंक पर क्लिक किया या उस पर कोई जानकारी डाली?",
-      "मैं CyberCare+ हूँ, आपकी AI-आधारित साइबर सुरक्षा साथी, कोई इंसान एजेंट नहीं। मैं स्कैम पहचानने, संदिग्ध मैसेज जाँचने और कुछ गलत होने पर सही कदम बताने में आपकी मदद कर सकती हूँ। मैं जो बताती हूँ वह सामान्य मार्गदर्शन है, कानूनी, वित्तीय या बीमा सलाह नहीं। ℹ️ यह चैट सुरक्षित रूप से सहेजी जाती है ताकि हमारी टीम आपकी मदद कर सके। यह कोई आधिकारिक पुलिस या सरकारी चैनल नहीं है। CyberBoxx Cyber Services India Pvt. Limited, इसके शेयरधारक, निदेशक और अधिकारी इस जानकारी के उपयोग से होने वाले किसी भी नुकसान या क्षति के लिए कोई ज़िम्मेदारी नहीं लेते।"
-     ]
-    },
-    {
-     "user": "I opened the link but did not enter the OTP. What should I do now?",
-     "replies": [
-      "*Thanks for your patience* This is taking a little longer than usual. Your message is safe with us and we are still working on it.",
-      "You're right to be careful about not entering the OTP. Since you opened the link, there are six things to do here to secure your accounts and device: 1. Call your bank to block card/UPI 2. Call 1930 3. Tell your bank in writing 4. Change your passwords, email first 5. Save the screenshots and references 6. File the complaint at cybercrime.gov.in",
-      "Let's start with the most urgent step. Call your account helpline now to block that card or UPI. Whatever details you might have typed there could be compromised. When they pick up, tell them what happened and that it was not you. Please let me know once this is done.",
-      "Did you start this payment or request this OTP yourself, or did someone else ask you for it?"
-     ]
-    },
-    {
-     "user": "No, I did not start any payment or share any OTP. Someone only sent me that link.",
-     "replies": [
-      "Thanks for confirming you didn't start a payment or share an OTP. That's good.",
-      "Now, please call your account helpline to block your card or UPI. Please let me know once this is done.",
-      "Still to do: Call your bank to block card/UPI. Tell me once it's done."
-     ]
-    },
-    {
-     "user": "I have called the bank and blocked my UPI. That is done. What should I do next?",
-     "replies": [
-      "Well done for blocking your UPI. The next step is to call 1930 and report that your details were taken. This will put it on record before any money moves. If you'd like me to take you through it step by step, just reply yes."
-     ]
-    }
-   ]
-  },
-  {
-   "id": "UAT-FM-11-job-registration-fee-hi",
-   "suite": "smoke_happy",
-   "family": "UAT family protection",
-   "sheet_row": "",
-   "title": "",
-   "turn_count": 1,
-   "passed": true,
-   "status": "pass",
-   "fails": [],
-   "expected": "A genuine employer does not charge a job seeker a registration fee. Do not pay, and verify the company independently.",
-   "missing": [],
-   "basis": "",
-   "turns": [
-    {
-     "user": "मेरी बहन को एक वॉट्सएप मैसेज आया डेटा एंट्री जॉब के लिए, जिसमें रजिस्ट्रेशन के लिए ₹1,999 मांगे जा रहे हैं। क्या यह असली है?",
-     "replies": [
-      "नमस्ते! आपकी बहन को डेटा एंट्री जॉब के लिए रजिस्ट्रेशन फीस के तौर पर ₹1,999 मांगने वाला मैसेज मिला है। यह एक आम तरीका है जिससे जॉब स्कैमर्स लोगों को फंसाते हैं। कोई भी असली कंपनी आपसे नौकरी देने से पहले पैसे नहीं मांगती है।",
-      "क्या आपकी बहन ने यह फीस भर दी है या कोई और जानकारी शेयर की है?",
-      "मैं CyberCare+ हूँ, आपकी AI-आधारित साइबर सुरक्षा साथी, कोई इंसान एजेंट नहीं। मैं स्कैम पहचानने, संदिग्ध मैसेज जाँचने और कुछ गलत होने पर सही कदम बताने में आपकी मदद कर सकती हूँ। मैं जो बताती हूँ वह सामान्य मार्गदर्शन है, कानूनी, वित्तीय या बीमा सलाह नहीं। ℹ️ यह चैट सुरक्षित रूप से सहेजी जाती है ताकि हमारी टीम आपकी मदद कर सके। यह कोई आधिकारिक पुलिस या सरकारी चैनल नहीं है। CyberBoxx Cyber Services India Pvt. Limited, इसके शेयरधारक, निदेशक और अधिकारी इस जानकारी के उपयोग से होने वाले किसी भी नुकसान या क्षति के लिए कोई ज़िम्मेदारी नहीं लेते।"
-     ]
-    }
-   ]
-  },
-  {
-   "id": "UAT-EM-01-family-accident-call-en",
-   "suite": "smoke_happy",
-   "family": "UAT live scam",
-   "sheet_row": "",
-   "title": "",
-   "turn_count": 3,
-   "passed": true,
-   "status": "pass",
-   "fails": [],
-   "expected": "Distress or impersonation: calm the person, tell them to verify with the family member on a known number before any money moves, and do not ask for an OTP or bank details.",
-   "missing": [],
-   "basis": "",
-   "turns": [
-    {
-     "user": "My son just called me crying, said he's been in an accident and needs ₹50,000 transferred right now to a hospital account, he sounded scared and hung up quickly. I don't know what to do.",
-     "replies": [
-      "It sounds very frightening to get a call like that, especially about your son. This is a common impersonation scam, where scammers pretend to be a family member in an emergency to get money quickly. First, there are five things to do here: 1. Call only official numbers (card, app, website) 2. Report it on Chakshu (sancharsaathi.gov.in) 3. Warn family about impersonation calls 4. Agree a family secret word for money requests 5. Tell family how this scam works",
-      "The most important first step is to check with your son directly, on a number or channel you already use to reach him, not by replying to the message or call you just received. Please let me know once you've tried to reach him.",
-      "I'm CyberCare+, your AI-powered cyber safety companion, not a human agent. I can help you spot scams, check suspicious messages and guide you if something goes wrong. What I share is general guidance, not legal, financial or insurance advice. ℹ️ This chat is saved securely so our team can help you. This is not an official police or government channel. CyberBoxx Cyber Services India Pvt. Limited, its shareholders, directors & officers accept no liability for any loss or damage arising from the use of this information."
-     ]
-    },
-    {
-     "user": "He is calling again from another number. They want ₹50,000 in the next ten minutes. Should I transfer?",
-     "replies": [
-      "No, please do not transfer the money. The urgency and the short deadline are a common tactic in these scams to pressure you into acting without thinking, and a genuine emergency would still be there if you took a moment to verify it."
-     ]
-    },
-    {
-     "user": "I called my son on his usual number. He is fine and said he did not call me. What should I do now?",
-     "replies": [
-      "It's a huge relief that your son is safe. Scammers can now use AI to fake a familiar voice, or even a face on a video call, so even if it sounds or looks like someone you know, that alone is not proof it is really them; that is exactly what makes this trick work.",
-      "The next step is to report the call on Sanchar Saathi's Chakshu portal at sancharsaathi.gov.in. Please let me know once you have done this. If you'd like me to take you through it step by step, just reply yes."
-     ]
-    }
-   ]
-  },
-  {
-   "id": "UAT-CL-08-physical-card-not-covered-en",
-   "suite": "smoke_happy",
-   "family": "UAT policy and claim",
-   "sheet_row": "",
-   "title": "",
-   "turn_count": 1,
-   "passed": true,
-   "status": "pass",
-   "fails": [],
-   "expected": "Read the exclusion. A physical card and an ATM cash withdrawal are not a digital transaction, so this is not covered. Do not answer yes.",
-   "missing": [],
-   "basis": "",
-   "turns": [
-    {
-     "user": "I’m attaching my Digital Suraksha insurance policy copy. My wallet was stolen yesterday and the thief used my physical debit card to withdraw ₹15,000 cash from an ATM using a duplicate card — I never shared any OTP or did anything online. Is this covered under my policy?",
-     "replies": [
-      "I understand your concern about the stolen wallet and the ATM withdrawal. Your policy document states that physical debit card use, ATM cash withdrawals, and incidents with no digital step or OTP shared are not covered. You can report this on cybercrime.gov.in or call 1930, then contact Bajaj General Insurance within 90 days.",
-      "Never share an OTP, PIN or password. No bank, officer or company will ever ask for one.",
-      "I'm CyberCare+, your AI-powered cyber safety companion, not a human agent. I can help you spot scams, check suspicious messages and guide you if something goes wrong. What I share is general guidance, not legal, financial or insurance advice. ℹ️ This chat is saved securely so our team can help you. This is not an official police or government channel. CyberBoxx Cyber Services India Pvt. Limited, its shareholders, directors & officers accept no liability for any loss or damage arising from the use of this information."
-     ]
-    }
-   ]
-  },
-  {
-   "id": "UAT-OT-13-book-a-cab-en",
-   "suite": "smoke_happy",
-   "family": "UAT something else",
-   "sheet_row": "",
-   "title": "",
-   "turn_count": 1,
-   "passed": true,
-   "status": "pass",
-   "fails": [],
-   "expected": "This is outside cyber-fraud help. Say so. Do not pretend to book a cab.",
-   "missing": [],
-   "basis": "",
-   "turns": [
-    {
-     "user": "Can you help me book a cab to the airport tomorrow morning?",
-     "replies": [
-      "I understand you're looking to book a cab to the airport, but I can't directly book one for you. This chat is for helping with cyber fraud and online safety.",
-      "You would need to use a cab booking app or service for that.",
-      "I'm CyberCare+, your AI-powered cyber safety companion, not a human agent. I can help you spot scams, check suspicious messages and guide you if something goes wrong. What I share is general guidance, not legal, financial or insurance advice. ℹ️ This chat is saved securely so our team can help you. This is not an official police or government channel. CyberBoxx Cyber Services India Pvt. Limited, its shareholders, directors & officers accept no liability for any loss or damage arising from the use of this information."
-     ]
-    }
-   ]
-  },
-  {
-   "id": "UAT-OT-15-pm-kisan-mr",
-   "suite": "smoke_happy",
-   "family": "UAT something else",
-   "sheet_row": "",
-   "title": "",
-   "turn_count": 1,
-   "passed": true,
-   "status": "pass",
-   "fails": [],
-   "expected": "A fake government scheme, even though it arrived under Something Else. Do not refuse, and do not tell them to share Aadhaar or bank details.",
-   "missing": [],
-   "basis": "",
-   "turns": [
-    {
-     "user": "मला एक मेसेज आला आहे PM Kisan योजनेअंतर्गत जास्तीचे पैसे मिळणार आहेत, त्यासाठी आधार आणि बँक डिटेल्स मागत आहेत. हे खरे आहे का?",
-     "replies": [
-      "तुम्हाला PM किसान योजनेबद्दल जो मेसेज आला आहे, ज्यात आधार आणि बँक डिटेल्स मागितले आहेत, तो मेसेज खरा नाहीये. असे मेसेज सहसा फसवणुकीसाठी वापरले जातात.",
-      "तुम्ही त्या मेसेजमधील कोणत्याही लिंकवर क्लिक केले आहे का किंवा कोणतीही माहिती शेअर केली आहे का?",
-      "मी एक AI असिस्टंट आहे, माणूस एजंट नाही. मी जे सांगते ते सर्वसाधारण मार्गदर्शन आहे, कायदेशीर, आर्थिक किंवा विमा सल्ला नाही. ℹ️ ही चॅट सुरक्षितपणे जतन केली जाते जेणेकरून आमची टीम तुम्हाला मदत करू शकेल. हे अधिकृत पोलीस किंवा सरकारी चॅनेल नाही. CyberBoxx Cyber Services India Pvt. Limited, तिचे भागधारक, संचालक आणि अधिकारी या माहितीच्या वापरामुळे होणाऱ्या कोणत्याही नुकसानीची किंवा हानीची जबाबदारी घेत नाहीत."
-     ]
-    }
-   ]
+   "journey": {
+    "mode": "adaptive",
+    "stop_reason": "persona_loop",
+    "journey_complete": false,
+    "first_fail_step": 3,
+    "steps": [
+     {
+      "step": 1,
+      "status": "fail",
+      "issues": [
+       "OPENING_EXPECTATION_MISS"
+      ],
+      "bot_chars": 851
+     },
+     {
+      "step": 2,
+      "status": "warn",
+      "issues": [],
+      "bot_chars": 202
+     }
+    ]
+   }
   }
  ]
 }
