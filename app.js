@@ -128,6 +128,12 @@ function renderCase(row) {
   const meta = [];
   if (row.sheet_row) meta.push("Sheet row " + row.sheet_row);
   if (row.turn_count > 1) meta.push(row.turn_count + " steps");
+  if (row.journey && row.journey.mode === "adaptive") {
+    const j = row.journey;
+    if (j.first_fail_step) meta.push("broke at step " + j.first_fail_step);
+    else if (j.journey_complete) meta.push("reached end");
+    else if (j.stop_reason) meta.push("stopped: " + j.stop_reason.replace(/_/g, " "));
+  }
   summary.append(el("div", "name", displayTitle(row)));
   if (meta.length) summary.append(el("div", "meta", meta.join(" · ")));
   summary.append(el("div", "reason", missing.slice(0, 2).join(" · ") || (failed ? "A required step is missing" : "Did what this check asks")));
@@ -138,6 +144,13 @@ function renderCase(row) {
   if (row.expected) {
     panel.append(el("strong", "", "Should have"));
     panel.append(el("p", "", row.expected));
+  }
+  if (row.journey && row.journey.steps && row.journey.steps.length) {
+    panel.append(el("strong", "", "Step check"));
+    for (const s of row.journey.steps) {
+      const line = "Step " + s.step + ": " + s.status + (s.issues && s.issues.length ? " — " + s.issues.join(", ") : "");
+      panel.append(el("p", "", line));
+    }
   }
   if (missing.length) {
     panel.append(el("strong", "", "Left out"));
