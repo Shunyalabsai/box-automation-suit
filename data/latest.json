@@ -1,19 +1,19 @@
 {
- "published_at": "2026-11-27T07:15:40Z",
+ "published_at": "2026-11-27T08:01:47Z",
  "label": "Production · CyberCare demo flows (5)",
  "environment": "production",
  "environment_label": "Production",
  "server": "https://boxxv3.shunyalabs.ai",
  "reports": [
-  "demo_flows-20261127T071034Z.json"
+  "demo_flows-20261127T075457Z.json"
  ],
  "counts": {
   "cases": 5,
-  "pass": 3,
-  "fail": 2,
+  "pass": 5,
+  "fail": 0,
   "regression": 0,
-  "still_failing": 2,
-  "fixed": 0
+  "still_failing": 0,
+  "fixed": 2
  },
  "results": [
   {
@@ -22,12 +22,10 @@
    "family": "Other",
    "sheet_row": "",
    "title": "Demo UC3 phishing SMS (did not click)",
-   "turn_count": 4,
-   "passed": false,
-   "status": "new_fail",
-   "fails": [
-    "TURN_MUST_MATCH_MISSING[turn4]"
-   ],
+   "turn_count": 5,
+   "passed": true,
+   "status": "fixed",
+   "fails": [],
    "expected": "Demo flow from CyberCare Test Flows for demo.xlsx, sheet 'UC3 Phishing SMS'. Each turn should track the workbook's expected bot column.",
    "missing": [],
    "basis": "",
@@ -35,33 +33,50 @@
     {
      "user": "I got this message from bank stating to complete the kyc is it genuine",
      "replies": [
-      "The message you received about updating your KYC is not genuine. Banks like HDFC Bank will never ask you to update your PAN or net banking details through a link in an SMS. These messages are designed to trick you into giving away your personal information.",
-      "Did you click on the link or enter or share any details on it?",
+      "The message you received about updating your HDFC Netbanking and PAN details through a link is not genuine. Banks like HDFC never ask you to update your KYC or PAN details via SMS links. This is a common tactic used in phishing scams to try and get your personal information.",
+      "Did you click on the link or share any information after receiving this message?",
       "Please don't click the link in it.",
       "I'm CyberCare+, your AI-powered cyber safety companion, not a human agent. I can help you spot scams, check suspicious messages and guide you if something goes wrong. What I share is general guidance, not legal, financial or insurance advice. ℹ️ This chat is saved securely so our team can help you. This is not an official police or government channel. CyberBoxx Cyber Services India Pvt. Limited, its shareholders, directors & officers accept no liability for any loss or damage arising from the use of this information."
      ]
     },
     {
-     "user": "No I didn't click on the link",
+     "user": "No, I didn't click on the link.",
      "replies": [
-      "That's very good that you didn't click the link, it means nothing was shared from your side. This message is not genuine, and banks do not ask for KYC or net banking details via SMS links.",
-      "Please don't click the link in it.",
+      "That's good, it means no information was shared and your accounts are safe.",
       "Here is what to do with this message: 1. Block the sender, before deleting the message, so it can still be found. 2. Report it to HDFC Bank on their verified number 1800 1600, or in their official app. 3. Report it on Sanchar Saathi's Chakshu at sancharsaathi.gov.in, which takes reports of fraud SMS, calls and WhatsApp messages. After that, you can delete it."
      ]
     },
     {
-     "user": "Yes I blocked the sender message",
+     "user": "Yes, I blocked the sender message.",
      "replies": [
       "Well done for blocking the sender. Next, please report the message on Sanchar Saathi's Chakshu at sancharsaathi.gov.in."
      ]
     },
     {
-     "user": "Yes I informed",
+     "user": "Yes, I reported the message on Sanchar Saathi Chakshu at sancharsaathi.gov.in.",
      "replies": [
-      "That's good that you've informed them. Please also report the message to HDFC Bank on their verified number 1800 1600, or through their official app. Please call them now on this number and tell them what happened. Let me know once you've called."
+      "Well done for reporting the message on Sanchar Saathi Chakshu. Now, please report it to HDFC Bank on their verified number 1800 1600, or through their official app. Please call them now on this number and tell them what happened. Let me know once you've called."
+     ]
+    },
+    {
+     "user": "Yes, I called HDFC Bank on 1800 1600 and informed them about the fake KYC SMS.",
+     "replies": [
+      "That's great, you've completed all the recommended steps for this message.",
+      "Is there anything else you need help with right now?",
+      "*All done* Thanks for chatting with us. We hope that helps. Can we help with anything else?"
      ]
     }
-   ]
+   ],
+   "journey": {
+    "mode": "adaptive",
+    "stop_reason": "bot_closure",
+    "journey_complete": true,
+    "resolution_met": true,
+    "first_fail_step": null,
+    "max_turns": 20,
+    "milestones": {},
+    "steps": []
+   }
   },
   {
    "id": "DEMO-UC05-instagram-child-safety-en",
@@ -69,12 +84,10 @@
    "family": "Other",
    "sheet_row": "",
    "title": "Demo education Instagram child safety",
-   "turn_count": 3,
-   "passed": false,
-   "status": "new_fail",
-   "fails": [
-    "TURN_MUST_MATCH_MISSING[turn3]"
-   ],
+   "turn_count": 5,
+   "passed": true,
+   "status": "fixed",
+   "fails": [],
    "expected": "Demo flow from CyberCare Test Flows for demo.xlsx, sheet 'Education Flow'. Each turn should track the workbook's expected bot column.",
    "missing": [],
    "basis": "",
@@ -88,18 +101,42 @@
      ]
     },
     {
-     "user": "we have set the safe word",
+     "user": "We have set the safe word with our family.",
      "replies": [
-      "That's great you've set up a safe word. The next important step is to make sure everyone in the family understands how scam calls work, so they can spot them quickly."
+      "That's great you've set up a safe word with your family. The next important step is to explain to everyone exactly how these scam calls work. Make sure they know that if they get an urgent message asking for money, they should always verify it using your family's special word, and never send money without that confirmation."
      ]
     },
     {
-     "user": "Yes",
+     "user": "Yes, we explained to the family how impersonation and scam calls work.",
      "replies": [
-      "Have you been able to tell your family exactly how these scam calls work yet?"
+      "That's good that your family knows how to spot those calls. Now, let's look at your daughter's Instagram profile. It's a good idea to set her profile to \"friends-only\" so that strangers can't see her posts or learn who her relatives are. Please let me know once you've done this."
+     ]
+    },
+    {
+     "user": "Yes, we set her Instagram profile to private.",
+     "replies": [
+      "That's great that you've set your daughter's Instagram profile to private. Now, let's make sure you get immediate alerts for any money moving out of your account. Please switch on SMS and app alerts for every debit from your bank account so you see any transactions at once. If you'd like me to take you through it step by step, just reply yes."
+     ]
+    },
+    {
+     "user": "Thank you, I have done all of that.",
+     "replies": [
+      "That's excellent, you've completed all the steps to help keep your daughter safe online.",
+      "It's a good idea to say the code word out loud with your family once in a while, so everyone remembers it. Also, always remember that no real money transaction ever happens based on just one phone call, no matter how urgent it sounds. Going through these safety checks together every few months can really help.",
+      "*All done* Thanks for chatting with us. We hope that helps. Can we help with anything else?"
      ]
     }
-   ]
+   ],
+   "journey": {
+    "mode": "adaptive",
+    "stop_reason": "resolution_then_closure",
+    "journey_complete": true,
+    "resolution_met": true,
+    "first_fail_step": null,
+    "max_turns": 20,
+    "milestones": {},
+    "steps": []
+   }
   },
   {
    "id": "DEMO-UC01-digital-arrest-en",
@@ -107,7 +144,7 @@
    "family": "Other",
    "sheet_row": "",
    "title": "Demo UC1 digital arrest",
-   "turn_count": 6,
+   "turn_count": 9,
    "passed": true,
    "status": "pass",
    "fails": [],
@@ -119,51 +156,75 @@
      "user": "I got a call saying a parcel booked in my name was caught at Mumbai customs with drugs and a fake passport inside. He said he's transferring the call to the Cyber Crime branch. Now a “police officer” is saying I need to share my Aadhaar number and bank details to prove my innocence or my account will be frozen",
      "replies": [
       "If the call is still on, hang up now. Do not share your details or send them money.",
-      "It sounds like you're dealing with a \"digital arrest\" scam, where fraudsters pretend to be law enforcement and threaten you with legal action to get your personal details or money. Police or government agencies will never ask for your Aadhaar number, bank details, or any other sensitive information over the phone to \"prove your innocence\" or unfreeze your account.",
-      "Have you shared any of your details or paid any money to them yet?",
+      "It sounds like you're getting a digital arrest scam call, where fraudsters pretend to be police or customs officials. No real police officer will ask you for your Aadhaar or bank details over the phone to prove your innocence.",
+      "Have you shared any of your details or paid any money yet?",
       "Which bank is your account with? I'll give you its verified helpline number.",
       "I'm CyberCare+, your AI-powered cyber safety companion, not a human agent. I can help you spot scams, check suspicious messages and guide you if something goes wrong. What I share is general guidance, not legal, financial or insurance advice. ℹ️ This chat is saved securely so our team can help you. This is not an official police or government channel. CyberBoxx Cyber Services India Pvt. Limited, its shareholders, directors & officers accept no liability for any loss or damage arising from the use of this information."
      ]
     },
     {
-     "user": "I just confirmed my name and phone number, apart from that i have not given them any information and have not paid them anything",
+     "user": "I only confirmed my name and phone. I have not shared Aadhaar, bank details, or paid anything.",
      "replies": [
-      "That's good that you haven't shared any sensitive details or paid them anything. There are three things to do here: 1. Call only official numbers (card, app, website) 2. Report it on Chakshu (sancharsaathi.gov.in) 3. Block the sender's number and delete the message",
-      "First, hang up the call if you are still on it. Then, call your bank using the official number found on the back of your debit/credit card, your bank's official app, or their website. This is to make sure you are speaking to your actual bank. Please let me know once you've done this.",
-      "Which bank is your account with? I'll give you their verified helpline number."
+      "That's good, you haven't shared any sensitive details or lost money, so you are safe from this particular attempt. This is a digital arrest scam, where fraudsters pretend to be police or customs officials. There are three things to do here: 1. Call your bank to block card/UPI 2. Call only official numbers (card, app, website) 3. Report it on Chakshu (sancharsaathi.gov.in)",
+      "First, call your account helpline now to block the card or UPI, so no more money leaves. When they pick up, tell them what happened and that it was not you. I can tell you exactly what to say. Please tell me which bank your account is with. If you'd like me to take you through it step by step, just reply yes."
      ]
     },
     {
-     "user": "IDFC first",
+     "user": "IDFC First Bank.",
      "replies": [
-      "Thanks for confirming your bank. You can call IDFC First Bank on their official helpline number, 1800 10 888. This number is also available on the back of your card or in their official app.",
-      "Still to do: Call only official numbers (card, app, website). Tell me once it's done."
+      "Please call IDFC First Bank's helpline at 1800 10 888 now. Tell them you've received a scam call and want to block your card and turn off UPI for your account, or freeze the account completely."
      ]
     },
     {
-     "user": "I hung up the call with the scammers and informed the bank to moniter my account",
+     "user": "I called IDFC First on their helpline and asked them to monitor my account.",
      "replies": [
-      "That's good that you've hung up and spoken to your bank. The next step is to report the call on Sanchar Saathi's Chakshu portal. You can find it at sancharsaathi.gov.in. Please let me know once you've done this. If you'd like me to take you through it step by step, just reply yes."
+      "Thanks for calling your bank. It's important to do more than just monitor the account in these situations. Please call IDFC First Bank again on 1800 10 888 and ask them to block your card and turn off UPI for your account, or freeze the account completely."
      ]
     },
     {
-     "user": "ok i have updated in portal",
+     "user": "OK, I will follow that.",
      "replies": [
-      "That's great that you've reported it on the Chakshu portal.",
-      "You can message us here anytime if you hear anything new or if something changes.",
-      "Last step: block the sender's number and then delete the SMS, so they cannot contact you again.",
-      "Once you have blocked the sender and deleted the SMS, tell me here."
+      "That's good. Once you've done that, please hang up and then call them back on a number you already have saved, like from the back of your card or their official app. This is to make sure you're speaking to the real bank and not a fraudster."
      ]
     },
     {
-     "user": "I have blocked and deleted the number",
+     "user": "I hung up the call with the scammers.",
      "replies": [
-      "That's good that you've blocked and deleted the number. You've completed all the immediate steps to protect yourself.",
-      "You did not share any sensitive details or lose any money, which is a good outcome. You can also report any future scam calls or messages to Chakshu.",
+      "Thanks for letting me know you hung up on the scammers. Have you been able to block your card and turn off UPI, or freeze your account with IDFC First Bank yet?"
+     ]
+    },
+    {
+     "user": "OK, I will follow that. I have completed that now.",
+     "replies": [
+      "That's great that you've completed blocking your card and turning off UPI with IDFC First Bank.",
+      "Now, please call them back on a number you already have saved, like from the back of your card or their official app, to make sure you're speaking to the real bank."
+     ]
+    },
+    {
+     "user": "I have blocked the scammer's number and deleted their messages.",
+     "replies": [
+      "It's good you've blocked the scammer's number and deleted their messages. Now, please call IDFC First Bank again on a number you already have saved, like from the back of your card or their official app, to be sure you're speaking to the real bank. Their helpline is 1800 10 888."
+     ]
+    },
+    {
+     "user": "Thank you, I have done all of that.",
+     "replies": [
+      "You've done everything that needed doing right now. Your bank or the Chakshu helpline will follow up with you if they need anything else.",
+      "You can message us here any time if something changes or you hear anything new.",
       "*All done* Thanks for chatting with us. We hope that helps. Can we help with anything else?"
      ]
     }
-   ]
+   ],
+   "journey": {
+    "mode": "adaptive",
+    "stop_reason": "resolution_then_closure",
+    "journey_complete": true,
+    "resolution_met": true,
+    "first_fail_step": null,
+    "max_turns": 20,
+    "milestones": {},
+    "steps": []
+   }
   },
   {
    "id": "DEMO-UC02-genuine-nps-email-en",
@@ -183,32 +244,45 @@
      "user": "is this email genuine?",
      "replies": [
       "This looks like a genuine Protean NPS monthly statement email. Protean is the government-appointed Central Recordkeeping Agency for NPS accounts and sends these statements regularly; nothing in it asks you to pay, share an OTP, or give any details. To view your statement, log in directly at the official NPS or CRA website, type the address yourself rather than using the link in the email.",
-      "However, we cannot fully verify its authenticity from here. Do you have one?",
+      "However, there are a few things we can check to help figure it out.",
+      "First, were you expecting this NPS statement for October 2026? Also, could you tell me what email address your genuine NPS statements usually come from?",
       "Did you click the link, or enter or share any details on it?",
       "I'm CyberCare+, your AI-powered cyber safety companion, not a human agent. I can help you spot scams, check suspicious messages and guide you if something goes wrong. What I share is general guidance, not legal, financial or insurance advice. ℹ️ This chat is saved securely so our team can help you. This is not an official police or government channel. CyberBoxx Cyber Services India Pvt. Limited, its shareholders, directors & officers accept no liability for any loss or damage arising from the use of this information."
      ]
     },
     {
-     "user": "yes the email matches",
+     "user": "Yes, the sender email address matches what I usually get from NPS.",
      "replies": [
-      "*Thanks for your patience* This is taking a little longer than usual. Your message is safe with us and we are still working on it.",
       "To check, open your bank's official app or call the number on the back of your card.",
-      "I understand the email matches the description. Did you click on any links in the email or share any personal details?"
+      "Thanks for confirming the sender's email address. That's a good sign.",
+      "To help you further, could you tell me if you were expecting this NPS statement for October 2026? Also, did you click on any link in the email or enter any details?"
      ]
     },
     {
-     "user": "yes i clicked the link and updated the details, usually it was Q&A with feedback, No personal information was asked in the link",
+     "user": "Yes, the sender email address matches what I usually get from NPS. I have completed that now.",
      "replies": [
-      "Okay, you clicked the link and updated some details. What kind of details did you update?"
+      "That's a good sign."
      ]
     },
     {
-     "user": "Ok got it",
+     "user": "Ok got it, thanks for confirming it looks genuine.",
      "replies": [
-      "Could you please clarify what you mean by \"Ok got it\"? Did you understand my question, or do you have the answer about the details you updated?"
+      "You're welcome. I'm glad I could help confirm that for you.",
+      "You've done everything that needs doing for now. You can always message us here if anything changes or if you hear anything else about this.",
+      "*All done* Thanks for chatting with us. We hope that helps. Can we help with anything else?"
      ]
     }
-   ]
+   ],
+   "journey": {
+    "mode": "adaptive",
+    "stop_reason": "bot_closure",
+    "journey_complete": true,
+    "resolution_met": true,
+    "first_fail_step": null,
+    "max_turns": 20,
+    "milestones": {},
+    "steps": []
+   }
   },
   {
    "id": "DEMO-UC04-forex-card-abroad-en",
@@ -227,43 +301,56 @@
     {
      "user": "my parents were travelling abroad and i gave them my Credit card for use.. I see some transactions done on the card that havent been done by them. What do i need tio do",
      "replies": [
-      "It sounds really worrying to see transactions on your credit card that your parents didn't make while they were travelling. We can definitely help you figure out what to do about this. There are six things to do here: 1. Call your bank to block the credit card 2. Call 1930 3. Tell your bank in writing 4. Save the screenshots and references 5. File the complaint at cybercrime.gov.in 6. File an FIR at the police station",
-      "Let's start with the most urgent step. Please call your bank's helpline right now to block your credit card. A new PIN won't help, as the fraudsters likely have the card number itself. When they pick up, tell them exactly what happened and that these transactions were not made by you or your parents. Could you please tell me which bank issued this credit card?",
+      "It sounds really worrying to see transactions on your credit card that your parents didn't make while they were travelling. This looks like a case of unauthorized transactions, and we need to act quickly. There are six things to do here: 1. Call your bank to block the credit card 2. Call 1930 3. Tell your bank in writing 4. Save the screenshots and references 5. File the complaint at cybercrime.gov.in 6. File an FIR at the police station",
+      "Let's start with the most urgent step. Please call your credit card helpline now to block the card. A new PIN won't help, as they already have the card number. When they pick up, tell them what happened and that these transactions were not made by you or your parents. Could you please tell me which bank issued this credit card?",
       "I'm CyberCare+, your AI-powered cyber safety companion, not a human agent. I can help you spot scams, check suspicious messages and guide you if something goes wrong. What I share is general guidance, not legal, financial or insurance advice. ℹ️ This chat is saved securely so our team can help you. This is not an official police or government channel. CyberBoxx Cyber Services India Pvt. Limited, its shareholders, directors & officers accept no liability for any loss or damage arising from the use of this information."
      ]
     },
     {
-     "user": "HDFC bank",
+     "user": "HDFC bank.",
      "replies": [
-      "Thanks for letting me know it's HDFC Bank. Please call HDFC Bank's helpline at 1800 1600 right now to block your credit card the account entirely. You can also find this number on the back of your card or in the HDFC Bank app."
+      "Thanks for letting me know it's HDFC Bank. Please call their credit card helpline now on 1800 1600 and ask them to block your credit card for it, or freeze the account entirely. You can also find this number on the back of your card or in the official HDFC Bank app."
      ]
     },
     {
-     "user": "Thanks, I have informed the bank",
+     "user": "Thanks, I have informed HDFC Bank and blocked the card.",
      "replies": [
-      "Well done on getting the credit card blocked with HDFC Bank. The next important step is to call 1930, which is the national cyber-fraud helpline, open 24x7. Reporting it quickly can help freeze the money. If you'd like me to take you through it step by step, just reply yes."
+      "That's good, blocking the card was the most important first step. Now, please call 1930 to report this fraud. This is the national cyber-fraud helpline, open 24x7, and reporting quickly can help freeze the money. If you'd like me to take you through it step by step, just reply yes."
      ]
     },
     {
-     "user": "I have informed 1930 helpline about my fraud and the they gave me an acknowledgment number",
+     "user": "I called the 1930 helpline and they gave me an acknowledgement number.",
      "replies": [
-      "That's good that you've reported it to 1930 and have an acknowledgement number. The next step is to formally inform HDFC Bank in writing that these credit card transactions were not made by you. This creates an official record. You can do this by sending an email to support@hdfc.bank.in. If you'd like, I can help you draft that email."
+      "That's good you've called 1930 and have the acknowledgement number. The next step is to inform HDFC Bank in writing that these credit card transactions were not made by you. You can do this by sending an email to support@hdfc.bank.in.",
+      "If you'd like, I can help you draft an email for this."
      ]
     },
     {
-     "user": "what needs to be done next",
+     "user": "Yes, please help me draft the email to the bank about the unauthorised transactions.",
      "replies": [
-      "Now that you've informed HDFC Bank, the next step is to gather and keep all the evidence related to these transactions. This includes screenshots, transaction references, and any messages or call logs you might have, as you will be asked for these later. If you'd like me to take you through it step by step, just reply yes."
+      "Here is a draft email you can send to HDFC Bank at support@hdfc.bank.in to report the unauthorised transactions on your credit card.",
+      "To: support@hdfc.bank.in Subject: Urgent: Unauthorised Transactions on Credit Card - [Your Name] - [Last 4 digits of your credit card] Dear HDFC Bank Fraud Department, I am writing to report several unauthorised transactions on my credit card, ending in [last 4 digits of your credit card]. These transactions were not made by me or my parents, who were using the card while travelling abroad. The details of the unauthorised transactions are as follows: - Date: [Date of first unauthorised transaction] - Amount: [Amount of first unauthorised transaction] - Date: [Date of second unauthorised transaction, if any] - Amount: [Amount of second unauthorised transaction, if any] - [Add more dates and amounts as needed] I have already blocked the credit card and reported the incident to the national cyber-fraud helpline 1930, receiving acknowledgement number [1930 complaint number, if you have it]. I request you to investigate these transactions immediately, reverse the unauthorised charges, and provide a written acknowledgement of this complaint with a reference number. I have attached screenshots of the transactions and my credit card statement for your reference. Thank you for your urgent…"
      ]
     },
     {
-     "user": "what do i need to mention in the email, can you help me draft it",
+     "user": "Thank you, I have done all of that.",
      "replies": [
-      "I can certainly help you draft that email to HDFC Bank. Here is a draft you can use, just fill in the details in the square brackets:",
-      "To: support@hdfc.bank.in Subject: Urgent: Unauthorised Credit Card Transactions - [Your Name] - [Last 4 digits of your Credit Card] Dear HDFC Bank, I am writing to report several unauthorised transactions on my credit card, ending in [last 4 digits of your credit card]. These transactions were not made by me or my parents, who were using the card while travelling abroad. The details of the fraudulent transactions are as follows: - Date: [Date of first unauthorised transaction] - Amount: [Amount of first unauthorised transaction] - Date: [Date of second unauthorised transaction] - Amount: [Amount of second unauthorised transaction] - [Add more dates and amounts if there are more transactions] I have already reported this fraud to the national cyber-fraud helpline 1930, and my complaint reference number is [1930 complaint number, if you have it]. I have also blocked my credit card through your helpline. I request you to investigate these transactions, reverse the unauthorised charges, and provide me with a written acknowledgement of this complaint, including a reference number. I have attached screenshots of the transactions and my bank statement for your reference. Sincerely, [Your…"
+      "That's great that you've completed all those steps. You've done everything that needs doing right now to report the fraud.",
+      "HDFC Bank will now investigate the unauthorised transactions on your credit card, and the cybercrime department will also be looking into your report. You can message us here anytime if you hear anything new or if you have any more questions.",
+      "*All done* Thanks for chatting with us. We hope that helps. Can we help with anything else?"
      ]
     }
-   ]
+   ],
+   "journey": {
+    "mode": "adaptive",
+    "stop_reason": "resolution_then_closure",
+    "journey_complete": true,
+    "resolution_met": true,
+    "first_fail_step": null,
+    "max_turns": 20,
+    "milestones": {},
+    "steps": []
+   }
   }
  ]
 }
