@@ -135,5 +135,16 @@
   "fail": 9,
   "regression": 2,
   "fixed": 1
+ },
+ {
+  "published_at": "2026-11-27T07:15:40Z",
+  "environment": "production",
+  "environment_label": "Production",
+  "label": "Production · CyberCare demo flows (5)",
+  "server": "https://boxxv3.shunyalabs.ai",
+  "pass": 3,
+  "fail": 2,
+  "regression": 0,
+  "fixed": 0
  }
 ]
